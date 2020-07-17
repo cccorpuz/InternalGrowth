@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class TimelineViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
