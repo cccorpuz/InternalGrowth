@@ -14,11 +14,23 @@ class MainViewController: UIViewController, FloatyDelegate {
 
     // Floating button in bottom right corner
     var floaty = Floaty()
+    @IBOutlet weak var QuickPrompt1Button: UIButton!
+    @IBOutlet weak var QuickPrompt2Button: UIButton!
+    @IBOutlet weak var QuickPrompt3Button: UIButton!
     
     override func viewDidLoad() {
       super.viewDidLoad()
       
-      layoutFAB()
+      generateFloatingButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // To give buttons rounded corners:
+        QuickPrompt1Button.layer.cornerRadius = 30;
+        QuickPrompt2Button.layer.cornerRadius = 30;
+        QuickPrompt3Button.layer.cornerRadius = 30;
+        
     }
     
     @IBAction func endEditing() {
@@ -33,7 +45,7 @@ class MainViewController: UIViewController, FloatyDelegate {
       }
     }
     
-    func layoutFAB() {
+    func generateFloatingButton() {
         /*
          Notes :
             -Floaty item objects can be found by calling >> items[index]
