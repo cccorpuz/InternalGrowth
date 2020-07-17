@@ -26,7 +26,7 @@
         <!--HomeScreenViewController-->
         <scene sceneID="OXN-QS-crx">
             <objects>
-                <viewController title="HomeScreenViewController" id="h5e-PB-l04" sceneMemberID="viewController">
+                <viewController title="HomeScreenViewController" id="h5e-PB-l04" customClass="MainViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8B-uB-qXm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,18 +51,8 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Demo Tree" translatesAutoresizingMaskIntoConstraints="NO" id="HYX-BX-TYx">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="698"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="758"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dC4-jQ-lUV">
-                                        <rect key="frame" x="0.0" y="748" width="414" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="6Ki-03-dFd"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="9v3-zZ-ubN" kind="show" id="jSm-hH-8Zn"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -80,16 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yX3-8q-WZP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-891.304347826087" y="-517.63392857142856"/>
-        </scene>
-        <!--Timeline-->
-        <scene sceneID="Kwe-aQ-vhH">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Timeline" id="9v3-zZ-ubN" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="IrN-NP-gb9"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8TN-79-cji" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-884" y="15"/>
         </scene>
     </scenes>
     <resources>
