@@ -12,11 +12,29 @@ import Floaty
 
 class MainViewController: UIViewController, FloatyDelegate {
 
-    // Floating button in bottom right corner
-    var floaty = Floaty()
-    @IBOutlet weak var QuickPrompt1Button: UIButton!
-    @IBOutlet weak var QuickPrompt2Button: UIButton!
-    @IBOutlet weak var QuickPrompt3Button: UIButton!
+    // Global Variables
+    var floaty = Floaty()       // Floating button in bottom right corner
+    var prompts = Prompts()     // Prompts Object
+    
+    @IBOutlet weak var QuickPrompt1Button : UIButton!
+    @IBOutlet weak var QuickPrompt2Button : UIButton!
+    @IBOutlet weak var QuickPrompt3Button : UIButton!
+
+    @IBAction func QuickPrompt1Button (_ sender: UIButton!)
+    {
+        prompts.selectedPrompt = QuickPrompt1Button
+        prompt = QuickPrompt1Button.currentTitle!
+    }
+    @IBAction func QuickPrompt2Button (_ sender: UIButton!)
+    {
+        prompts.selectedPrompt = QuickPrompt2Button
+        prompt = QuickPrompt2Button.currentTitle!
+    }
+    @IBAction func QuickPrompt3Button (_ sender: UIButton!)
+    {
+        prompts.selectedPrompt = QuickPrompt3Button
+        prompt = QuickPrompt3Button.currentTitle!
+    }
     
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -30,6 +48,11 @@ class MainViewController: UIViewController, FloatyDelegate {
         QuickPrompt1Button.layer.cornerRadius = 30;
         QuickPrompt2Button.layer.cornerRadius = 30;
         QuickPrompt3Button.layer.cornerRadius = 30;
+        
+        QuickPrompt1Button.setTitle(prompts.prompts[0], for: .normal)
+        QuickPrompt2Button.setTitle(prompts.prompts[1], for: .normal)
+        QuickPrompt3Button.setTitle(prompts.prompts[2], for: .normal)
+
         
     }
     

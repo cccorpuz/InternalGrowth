@@ -45,6 +45,12 @@
                                                 <state key="normal" title="How are you feeling today?">
                                                     <color key="titleColor" red="0.14840689242062843" green="0.59755505181347157" blue="0.11319476276559597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="QuickPrompt1Button:" destination="h5e-PB-l04" eventType="touchUpInside" id="KRc-He-phE"/>
+                                                    <segue destination="n2d-15-6KF" kind="popoverPresentation" popoverAnchorView="wKp-LU-yNc" id="82a-oV-Gos">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yQi-IV-Anr" userLabel="QuickPrompt2">
                                                 <rect key="frame" x="0.0" y="70" width="414" height="60"/>
@@ -55,6 +61,12 @@
                                                 <state key="normal" title="Tell me about the last hour!">
                                                     <color key="titleColor" red="0.14840689239999999" green="0.59755505180000001" blue="0.1131947628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="QuickPrompt2Button:" destination="h5e-PB-l04" eventType="touchUpInside" id="wus-tC-3Gz"/>
+                                                    <segue destination="n2d-15-6KF" kind="popoverPresentation" popoverAnchorView="yQi-IV-Anr" id="A07-cq-7Sw">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfJ-O5-dEg" userLabel="QuickPrompt3">
                                                 <rect key="frame" x="0.0" y="140" width="414" height="60"/>
@@ -65,6 +77,12 @@
                                                 <state key="normal" title="Who inspires you?">
                                                     <color key="titleColor" red="0.14840689239999999" green="0.59755505180000001" blue="0.1131947628" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="QuickPrompt3Button:" destination="h5e-PB-l04" eventType="touchUpInside" id="cuc-Dh-jTJ"/>
+                                                    <segue destination="n2d-15-6KF" kind="popoverPresentation" popoverAnchorView="XfJ-O5-dEg" id="pB3-Ym-xbF">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -100,7 +118,20 @@
             </objects>
             <point key="canvasLocation" x="-891.304347826087" y="-517.63392857142856"/>
         </scene>
+        <!--QuickReflection-->
+        <scene sceneID="dvR-7d-UmP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QuickReflection" id="n2d-15-6KF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="WQJ-Un-Kio"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jce-Ib-3ic" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-283" y="-719"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="82a-oV-Gos"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Demo Tree" width="3000" height="4000"/>
     </resources>
