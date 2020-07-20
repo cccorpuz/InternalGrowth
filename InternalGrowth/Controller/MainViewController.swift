@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  MainViewController.swift
 //  InternalGrowth
 //
 //  Created by Crispin Corpuz on 7/14/20.
@@ -115,7 +115,15 @@ class MainViewController: UIViewController, FloatyDelegate {
         newReflection.circleShadowColor = UIColor.gray
         newReflection.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
         newReflection.titleLabelPosition = .left
-        newReflection.title = "New Full Reflection"
+        newReflection.title = "Fully Reflect!"
+        
+        // Open Full Reflection Storyboard
+        newReflection.handler = {item in
+            let storyBoard : UIStoryboard = UIStoryboard(name: "FullReflection", bundle: nil)
+            let fullReflectionViewController = storyBoard.instantiateViewController(withIdentifier: "FullReflection")
+            fullReflectionViewController.modalPresentationStyle = .fullScreen
+            self.present(fullReflectionViewController, animated: true, completion: nil)
+        }
         floaty.addItem(item: newReflection)
         
         // Library Timeline button option
@@ -127,6 +135,12 @@ class MainViewController: UIViewController, FloatyDelegate {
         goToLibrary.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
         goToLibrary.titleLabelPosition = .left
         goToLibrary.title = "Reflection Timeline"
+        goToLibrary.handler = {item in
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Timeline", bundle: nil)
+            let reflectionTimelineViewController = storyBoard.instantiateViewController(withIdentifier: "ReflectionTimeline")
+            reflectionTimelineViewController.modalPresentationStyle = .fullScreen
+            self.present(reflectionTimelineViewController, animated: true, completion: nil)
+        }
         floaty.addItem(item: goToLibrary)
         
         floaty.hasShadow = true

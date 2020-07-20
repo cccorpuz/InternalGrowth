@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jBE-wV-77U">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Past Reflection View Controller-->
+        <scene sceneID="KJw-Li-Z5k">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="jBE-wV-77U" customClass="PastReflectionViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3SM-Qj-NTd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OHi-HO-MxX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflection Prompt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUT-Y7-2Fl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="w6a-Ng-ya9">
+                                        <rect key="frame" x="0.0" y="40.5" width="414" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keyword" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOI-s8-sy1">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date/Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wms-kD-cnp">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MJP-80-sam">
+                                        <rect key="frame" x="0.0" y="81" width="414" height="617"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RIZ-j0-gya">
+                                        <rect key="frame" x="0.0" y="718" width="414" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcf-7j-Nrh">
+                                                <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                                <state key="normal" title="Edit Reflection"/>
+                                                <connections>
+                                                    <action selector="onEditButtonPressed:" destination="jBE-wV-77U" eventType="touchUpInside" id="eo8-HK-e67"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRA-5E-Kc6">
+                                                <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                                <state key="normal" title="Save Changes"/>
+                                                <connections>
+                                                    <action selector="onSaveButtonPressed:" destination="jBE-wV-77U" eventType="touchUpInside" id="FkM-TP-ykM"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2k1-Qx-aXq">
+                                        <rect key="frame" x="0.0" y="768" width="414" height="50"/>
+                                        <state key="normal" title="Return to Timeline"/>
+                                        <connections>
+                                            <action selector="onReturnButtonPressed:" destination="jBE-wV-77U" eventType="touchUpInside" id="I8r-co-YAq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fUr-IL-lVC" firstAttribute="trailing" secondItem="OHi-HO-MxX" secondAttribute="trailing" id="Mjs-4V-1pl"/>
+                            <constraint firstItem="fUr-IL-lVC" firstAttribute="bottom" secondItem="OHi-HO-MxX" secondAttribute="bottom" id="Psx-Ff-egt"/>
+                            <constraint firstItem="OHi-HO-MxX" firstAttribute="leading" secondItem="fUr-IL-lVC" secondAttribute="leading" id="Wv0-3h-2ei"/>
+                            <constraint firstItem="OHi-HO-MxX" firstAttribute="top" secondItem="fUr-IL-lVC" secondAttribute="top" id="c8j-8E-MmD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fUr-IL-lVC"/>
+                    </view>
+                    <connections>
+                        <outlet property="dateTimeLabel" destination="Wms-kD-cnp" id="COX-aT-7mf"/>
+                        <outlet property="keywordLabel" destination="JOI-s8-sy1" id="hye-RM-300"/>
+                        <outlet property="reflectionPromptLabel" destination="eUT-Y7-2Fl" id="6u1-S6-mgO"/>
+                        <outlet property="reflectionTextView" destination="MJP-80-sam" id="xui-cW-1dL"/>
+                        <outlet property="saveChangesButton" destination="XRA-5E-Kc6" id="bPy-r7-SKu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ffV-lb-VXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="-300"/>
+        </scene>
+    </scenes>
+</document>
