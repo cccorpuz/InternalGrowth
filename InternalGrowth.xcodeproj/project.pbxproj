@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		111A4E5A6AF47FAB7165289B /* Pods_InternalGrowth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFADE732D9D0D3FAEF99047 /* Pods_InternalGrowth.framework */; };
 		6C0E7F0824C9F83400EE99C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C0E7F0724C9F83400EE99C9 /* GoogleService-Info.plist */; };
+		4FA9EAF124CA094700010A7F /* Record.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FA9EAF024CA094700010A7F /* Record.storyboard */; };
+		4FA9EAF324CA0BAE00010A7F /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA9EAF224CA0BAE00010A7F /* RecordViewController.swift */; };
 		6C4BE87324C01A9A00E31AF0 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BE87124C01A9A00E31AF0 /* Timeline.storyboard */; };
 		6CA78C9C24C1328C00EC3A9A /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 6CA78C9B24C1328C00EC3A9A /* Floaty */; };
 		6CEA923224BE419800C9AA92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEA923124BE419800C9AA92 /* AppDelegate.swift */; };
@@ -37,6 +39,8 @@
 		3AFADE732D9D0D3FAEF99047 /* Pods_InternalGrowth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InternalGrowth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4466D6B71D26C151F036989D /* Pods-InternalGrowth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InternalGrowth.debug.xcconfig"; path = "Target Support Files/Pods-InternalGrowth/Pods-InternalGrowth.debug.xcconfig"; sourceTree = "<group>"; };
 		6C0E7F0724C9F83400EE99C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FA9EAF024CA094700010A7F /* Record.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Record.storyboard; sourceTree = "<group>"; };
+		4FA9EAF224CA0BAE00010A7F /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecordViewController.swift; path = InternalGrowth/View/RecordViewController.swift; sourceTree = SOURCE_ROOT; };
 		6C4BE87224C01A9A00E31AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Timeline.storyboard; sourceTree = "<group>"; };
 		6CEA922E24BE419800C9AA92 /* InternalGrowth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InternalGrowth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CEA923124BE419800C9AA92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 		6CC4159024BF7BEE007B4546 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4FA9EAF024CA094700010A7F /* Record.storyboard */,
 				6CEA923924BE419800C9AA92 /* Main.storyboard */,
 				6CEF0E9A24C9F9AA00140B1C /* Login.storyboard */,
 				6CEF0E9C24C9F9B300140B1C /* SignUp.storyboard */,
@@ -103,6 +108,7 @@
 		6CC4159224BF7C26007B4546 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4FA9EAF224CA0BAE00010A7F /* RecordViewController.swift */,
 				6CEA923524BE419800C9AA92 /* MainViewController.swift */,
 				6CEA923724BE419800C9AA92 /* TimelineViewController.swift */,
 				6CEA923124BE419800C9AA92 /* AppDelegate.swift */,
@@ -242,6 +248,7 @@
 				6CEE249724C25D62000C75D1 /* QuickReflection.storyboard in Resources */,
 				6CEA923B24BE419800C9AA92 /* Main.storyboard in Resources */,
 				6CEF0E9B24C9F9AA00140B1C /* Login.storyboard in Resources */,
+				4FA9EAF124CA094700010A7F /* Record.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +306,7 @@
 				6CEE249B24C25DFA000C75D1 /* QuickReflectionViewController.swift in Sources */,
 				6CEE249924C25DEC000C75D1 /* Prompts.swift in Sources */,
 				6CFAFBCF24C4D9AC00E23232 /* PastReflectionViewController.swift in Sources */,
+				4FA9EAF324CA0BAE00010A7F /* RecordViewController.swift in Sources */,
 				6CEA923624BE419800C9AA92 /* MainViewController.swift in Sources */,
 				6CEF0EA124C9F9C600140B1C /* SignUpViewController.swift in Sources */,
 				6CFAFBD724C4F52B00E23232 /* ReflectionCells.swift in Sources */,

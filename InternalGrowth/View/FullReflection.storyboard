@@ -96,6 +96,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWn-LN-6fY">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="22"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
+                                                <connections>
+                                                    <segue destination="sTB-BD-W4E" kind="show" id="Idc-dq-Cjl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -165,6 +168,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTM-7P-jpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-917" y="-595"/>
+        </scene>
+        <!--Record-->
+        <scene sceneID="sf0-fX-kg9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Record" id="sTB-BD-W4E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="y9n-Dk-1re"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kl1-7l-l0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-149" y="-615"/>
         </scene>
     </scenes>
     <resources>
