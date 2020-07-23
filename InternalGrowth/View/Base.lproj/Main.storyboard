@@ -118,16 +118,16 @@
             </objects>
             <point key="canvasLocation" x="-936" y="-305"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="Ryg-VA-geY">
             <objects>
-                <viewController id="Pqi-A0-8ZM" customClass="MainViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pqi-A0-8ZM" customClass="LoginViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmF-RC-Bqs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D98-Jd-NO2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="440"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="500"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dww-lX-6PD">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
@@ -174,8 +174,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-x1-g3I" userLabel="Confirm Password">
-                                        <rect key="frame" x="0.0" y="390" width="414" height="40"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-x1-g3I" userLabel="Confirm Password">
+                                        <rect key="frame" x="0.0" y="400" width="414" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="NlF-Sn-aGa"/>
                                         </constraints>
@@ -183,7 +183,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zht-ik-Scw">
-                                        <rect key="frame" x="0.0" y="400" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="460" width="414" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="lc6-CI-VFj"/>
                                         </constraints>

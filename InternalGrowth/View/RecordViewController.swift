@@ -36,7 +36,7 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
         
             cameraButton.isUserInteractionEnabled = true
         
-            let cameraButtonRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.startCapture))
+            let cameraButtonRecognizer = UITapGestureRecognizer(target: self, action: #selector(RecordViewController.startCapture))
         
             cameraButton.addGestureRecognizer(cameraButtonRecognizer)
         
@@ -164,9 +164,9 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
 
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      
-         let vc = segue.destination as! VideoPlaybackViewController
-     
-         vc.videoURL = sender as? URL
+//         let vc = segue.destination as! VideoPlaybackViewController
+//     
+//         vc.videoURL = sender as? URL
      
      }
 
@@ -250,4 +250,4 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     }
     */
 
-}
+

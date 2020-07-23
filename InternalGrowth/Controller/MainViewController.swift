@@ -16,7 +16,6 @@ class MainViewController: UIViewController, FloatyDelegate {
     var floaty = Floaty()       // Floating button in bottom right corner
     var prompts = Prompts()     // Prompts Object
     var gradientLayer: CAGradientLayer! // gradient object
-    var signingIn : Bool = true
     
     // Global Variables
     var buttonWidth = CGFloat.init()    // Width of the Quick Prompt Buttons
@@ -45,36 +44,6 @@ class MainViewController: UIViewController, FloatyDelegate {
         prompts.selectedPrompt = QuickPrompt3Button
         prompt = QuickPrompt3Button.currentTitle!
     }
-    
-    
-    // Login page views
-
-    @IBOutlet weak var signInUpOptionSegmentedControlOutlet: UISegmentedControl!
-    @IBOutlet fileprivate weak var loginTextField: UITextField!
-    @IBOutlet fileprivate weak var passwordTextField: UITextField!
-    @IBOutlet fileprivate weak var confirmPasswordTextField: UITextField!
-    
-    @IBAction func onSignInUpOptionSegmentedControlChanged(_ sender: Any) {
-        // *** Change this to a ternary operator in the future to be more concise and efficient ***
-        if signInUpOptionSegmentedControlOutlet.titleForSegment(at: 0) == "Sign In"
-        {
-            signingIn = true
-            print(signingIn)
-            confirmPasswordTextField.isEnabled = false
-            confirmPasswordTextField.isHidden = true
-        }
-        else
-        {
-            signingIn = false
-            print(signingIn)
-            confirmPasswordTextField.isEnabled = true
-            confirmPasswordTextField.isHidden = false
-        }
-    }
-    @IBAction func onGoButtonPressed(_ sender: Any) {
-
-    }
-    
     
     // MARK: - View functions
     override func viewDidLoad() {
