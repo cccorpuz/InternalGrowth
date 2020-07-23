@@ -118,21 +118,21 @@
             </objects>
             <point key="canvasLocation" x="-936" y="-305"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Ryg-VA-geY">
             <objects>
-                <viewController id="Pqi-A0-8ZM" sceneMemberID="viewController">
+                <viewController id="Pqi-A0-8ZM" customClass="MainViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmF-RC-Bqs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D98-Jd-NO2">
-                                <rect key="frame" x="0.0" y="44" width="414" height="451"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="D98-Jd-NO2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="440"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dww-lX-6PD">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="eof-w6-mSz"/>
+                                            <constraint firstAttribute="height" constant="200" id="cyA-1S-tuk"/>
                                         </constraints>
                                         <attributedString key="attributedText">
                                             <fragment content="Internal Growth">
@@ -146,33 +146,52 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HxY-VB-mJz">
-                                        <rect key="frame" x="0.0" y="78.5" width="414" height="59.5"/>
+                                        <rect key="frame" x="0.0" y="220" width="414" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="JiO-mh-zCn"/>
+                                        </constraints>
                                         <segments>
                                             <segment title="Sign In"/>
                                             <segment title="Sign Up"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="onSignInUpOptionSegmentedControlChanged:" destination="Pqi-A0-8ZM" eventType="valueChanged" id="nbQ-Qi-lDZ"/>
+                                        </connections>
                                     </segmentedControl>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EbN-Ot-3jd" userLabel="Username">
-                                        <rect key="frame" x="0.0" y="157" width="414" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="280" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0Bm-sI-gLG"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1hh-0r-ebg" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="235.5" width="414" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="340" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="uhg-xa-HpY"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-x1-g3I" userLabel="Confirm Password">
-                                        <rect key="frame" x="0.0" y="314" width="414" height="58.5"/>
+                                    <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykM-x1-g3I" userLabel="Confirm Password">
+                                        <rect key="frame" x="0.0" y="390" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="NlF-Sn-aGa"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zht-ik-Scw">
-                                        <rect key="frame" x="0.0" y="392.5" width="414" height="58.5"/>
+                                        <rect key="frame" x="0.0" y="400" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="lc6-CI-VFj"/>
+                                        </constraints>
                                         <state key="normal" title="GO ➡️">
                                             <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="onGoButtonPressed:" destination="Pqi-A0-8ZM" eventType="touchUpInside" id="ULa-O1-YKo"/>
                                             <segue destination="h5e-PB-l04" kind="show" identifier="GoToMainSegue" id="ZFO-36-vGW"/>
                                         </connections>
                                     </button>
@@ -181,18 +200,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="D98-Jd-NO2" firstAttribute="top" secondItem="QCU-yS-uhN" secondAttribute="top" id="Kpc-Nh-Awa"/>
-                            <constraint firstItem="D98-Jd-NO2" firstAttribute="bottom" secondItem="QCU-yS-uhN" secondAttribute="bottom" id="Q2o-gG-QAI"/>
-                            <constraint firstItem="QCU-yS-uhN" firstAttribute="trailing" secondItem="D98-Jd-NO2" secondAttribute="trailing" id="RTe-zg-gUQ"/>
-                            <constraint firstItem="D98-Jd-NO2" firstAttribute="top" secondItem="QCU-yS-uhN" secondAttribute="top" id="SQM-5T-QgL"/>
-                            <constraint firstItem="D98-Jd-NO2" firstAttribute="leading" secondItem="QCU-yS-uhN" secondAttribute="leading" id="Seh-a4-wZx"/>
-                            <constraint firstItem="D98-Jd-NO2" firstAttribute="trailing" secondItem="QCU-yS-uhN" secondAttribute="trailing" id="gko-Gi-H3r"/>
-                            <constraint firstItem="QCU-yS-uhN" firstAttribute="bottom" secondItem="D98-Jd-NO2" secondAttribute="bottom" id="iZs-oU-1r2"/>
-                            <constraint firstItem="D98-Jd-NO2" firstAttribute="leading" secondItem="QCU-yS-uhN" secondAttribute="leading" id="iqH-oN-2lo"/>
+                            <constraint firstItem="D98-Jd-NO2" firstAttribute="top" secondItem="QCU-yS-uhN" secondAttribute="top" id="SDs-pO-dQn"/>
+                            <constraint firstItem="D98-Jd-NO2" firstAttribute="leading" secondItem="QCU-yS-uhN" secondAttribute="leading" id="w3a-QQ-PtZ"/>
+                            <constraint firstItem="D98-Jd-NO2" firstAttribute="trailing" secondItem="QCU-yS-uhN" secondAttribute="trailing" id="zaP-RF-ua5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QCU-yS-uhN"/>
                     </view>
                     <navigationItem key="navigationItem" id="NOS-BU-2ac"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="ykM-x1-g3I" id="5R6-SB-BKL"/>
+                        <outlet property="loginTextField" destination="EbN-Ot-3jd" id="fSv-N7-h1p"/>
+                        <outlet property="passwordTextField" destination="1hh-0r-ebg" id="WJz-5g-SII"/>
+                        <outlet property="signInUpOptionSegmentedControlOutlet" destination="HxY-VB-mJz" id="0yA-cA-dwz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aU-lo-Cjg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

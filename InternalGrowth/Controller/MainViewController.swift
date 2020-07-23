@@ -16,11 +16,13 @@ class MainViewController: UIViewController, FloatyDelegate {
     var floaty = Floaty()       // Floating button in bottom right corner
     var prompts = Prompts()     // Prompts Object
     var gradientLayer: CAGradientLayer! // gradient object
+    var signingIn : Bool = true
     
+    // Main page views
     @IBOutlet weak var QuickPrompt1Button : UIButton!
     @IBOutlet weak var QuickPrompt2Button : UIButton!
     @IBOutlet weak var QuickPrompt3Button : UIButton!
-
+    
     @IBAction func QuickPrompt1Button (_ sender: UIButton!)
     {
         prompts.selectedPrompt = QuickPrompt1Button
@@ -37,6 +39,36 @@ class MainViewController: UIViewController, FloatyDelegate {
         prompt = QuickPrompt3Button.currentTitle!
     }
     
+    
+    // Login page views
+
+    @IBOutlet weak var signInUpOptionSegmentedControlOutlet: UISegmentedControl!
+    @IBOutlet fileprivate weak var loginTextField: UITextField!
+    @IBOutlet fileprivate weak var passwordTextField: UITextField!
+    @IBOutlet fileprivate weak var confirmPasswordTextField: UITextField!
+    
+    @IBAction func onSignInUpOptionSegmentedControlChanged(_ sender: Any) {
+        // *** Change this to a ternary operator in the future to be more concise and efficient ***
+        if signInUpOptionSegmentedControlOutlet.titleForSegment(at: 0) == "Sign In"
+        {
+            signingIn = true
+            print(signingIn)
+            confirmPasswordTextField.isEnabled = false
+            confirmPasswordTextField.isHidden = true
+        }
+        else
+        {
+            signingIn = false
+            print(signingIn)
+            confirmPasswordTextField.isEnabled = true
+            confirmPasswordTextField.isHidden = false
+        }
+    }
+    @IBAction func onGoButtonPressed(_ sender: Any) {
+
+    }
+    
+    
     // MARK: - View functions
     override func viewDidLoad() {
       super.viewDidLoad()
@@ -45,18 +77,19 @@ class MainViewController: UIViewController, FloatyDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+                
+        // Background color setting
         createGradientLayer()
 
         // To give buttons rounded corners:
-        QuickPrompt1Button.layer.cornerRadius = 30;
-        QuickPrompt2Button.layer.cornerRadius = 30;
-        QuickPrompt3Button.layer.cornerRadius = 30;
+        QuickPrompt1Button?.layer.cornerRadius = 30;
+        QuickPrompt2Button?.layer.cornerRadius = 30;
+        QuickPrompt3Button?.layer.cornerRadius = 30;
         
-        QuickPrompt1Button.setTitle(prompts.prompts[0], for: .normal)
-        QuickPrompt2Button.setTitle(prompts.prompts[1], for: .normal)
-        QuickPrompt3Button.setTitle(prompts.prompts[2], for: .normal)
-        
+        // Setting prompts
+        QuickPrompt1Button?.setTitle(prompts.prompts[0], for: .normal)
+        QuickPrompt2Button?.setTitle(prompts.prompts[1], for: .normal)
+        QuickPrompt3Button?.setTitle(prompts.prompts[2], for: .normal)
     }
     
     // MARK: - UI Programmatic styling functions
