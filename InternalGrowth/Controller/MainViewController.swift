@@ -13,8 +13,13 @@ import Floaty
 class MainViewController: UIViewController, FloatyDelegate {
 
     // Global Variables
-    var floaty = Floaty()       // Floating button in bottom right corner
-    var prompts = Prompts()     // Prompts Object
+    var buttonWidth = CGFloat.init()    // Width of the Quick Prompt Buttons
+    var viewWidth = CGFloat.init()      // Width of the Screen
+    var timer1 = Timer()                // Timer to move buttons across screen
+    var timer2 = Timer()                // Timer to move buttons across screen
+    var timer3 = Timer()                // Timer to move buttons across screen
+    var floaty = Floaty()               // Floating button in bottom right corner
+    var prompts = Prompts()             // Prompts Object
     
     @IBOutlet weak var QuickPrompt1Button : UIButton!
     @IBOutlet weak var QuickPrompt2Button : UIButton!
@@ -40,9 +45,26 @@ class MainViewController: UIViewController, FloatyDelegate {
       super.viewDidLoad()
       
       generateFloatingButton()
+        
+        // Find the button's width and height
+        buttonWidth = QuickPrompt1Button.frame.width
+
+        // Find the width and height of the enclosing view
+        viewWidth = QuickPrompt1Button.superview!.bounds.width
+        
+        timer1 = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(timerAction1), userInfo: self, repeats: true)
+        
+        timer2 = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(timerAction2), userInfo: self, repeats: true)
+        
+        timer3 = Timer.scheduledTimer(timeInterval: 0.018, target: self, selector: #selector(timerAction3), userInfo: self, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.cyan.cgColor]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
         
         // To give buttons rounded corners:
         QuickPrompt1Button.layer.cornerRadius = 30;
@@ -151,6 +173,27 @@ class MainViewController: UIViewController, FloatyDelegate {
 
         self.view.addSubview(floaty)
       
+    }
+    
+    @objc func timerAction1() {
+        if QuickPrompt1Button.center.x == viewWidth + buttonWidth / 2 {
+            QuickPrompt1Button.center.x = CGFloat.init() - buttonWidth / 2
+        }
+        QuickPrompt1Button.center.x += 1
+    }
+    
+    @objc func timerAction2() {
+        if QuickPrompt2Button.center.x == viewWidth + buttonWidth / 2 {
+            QuickPrompt2Button.center.x = CGFloat.init() - buttonWidth / 2
+        }
+        QuickPrompt2Button.center.x += 1
+    }
+    
+    @objc func timerAction3() {
+        if QuickPrompt3Button.center.x == viewWidth + buttonWidth / 2 {
+            QuickPrompt3Button.center.x = CGFloat.init() - buttonWidth / 2
+        }
+        QuickPrompt3Button.center.x += 1
     }
     
     // MARK: - Floaty Delegate Methods
