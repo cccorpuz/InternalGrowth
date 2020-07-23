@@ -12,9 +12,10 @@ import Floaty
 
 class MainViewController: UIViewController, FloatyDelegate {
 
-    // Global Variables
+    // MARK: - Global Variables
     var floaty = Floaty()       // Floating button in bottom right corner
     var prompts = Prompts()     // Prompts Object
+    var gradientLayer: CAGradientLayer! // gradient object
     
     @IBOutlet weak var QuickPrompt1Button : UIButton!
     @IBOutlet weak var QuickPrompt2Button : UIButton!
@@ -36,6 +37,7 @@ class MainViewController: UIViewController, FloatyDelegate {
         prompt = QuickPrompt3Button.currentTitle!
     }
     
+    // MARK: - View functions
     override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -44,6 +46,8 @@ class MainViewController: UIViewController, FloatyDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        createGradientLayer()
+
         // To give buttons rounded corners:
         QuickPrompt1Button.layer.cornerRadius = 30;
         QuickPrompt2Button.layer.cornerRadius = 30;
@@ -52,10 +56,21 @@ class MainViewController: UIViewController, FloatyDelegate {
         QuickPrompt1Button.setTitle(prompts.prompts[0], for: .normal)
         QuickPrompt2Button.setTitle(prompts.prompts[1], for: .normal)
         QuickPrompt3Button.setTitle(prompts.prompts[2], for: .normal)
-
         
     }
     
+    // MARK: - UI Programmatic styling functions
+    func createGradientLayer() {
+        gradientLayer = CAGradientLayer()
+     
+        gradientLayer.frame = self.view.bounds
+     
+        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.lightGray.cgColor, UIColor.white.cgColor]
+     
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    // MARK: - Floating button functions
     @IBAction func endEditing() {
       view.endEditing(true)
     }
