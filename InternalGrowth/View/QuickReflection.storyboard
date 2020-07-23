@@ -97,11 +97,22 @@
                     </view>
                     <connections>
                         <outlet property="reflectionLabel" destination="ouM-Vy-puv" id="70i-Di-xDU"/>
+                        <segue destination="O48-Bf-ilj" kind="show" id="hRF-tA-Zs1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-Fn-zDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417" y="-502"/>
+        </scene>
+        <!--Record-->
+        <scene sceneID="57g-87-mdv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Record" id="O48-Bf-ilj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="jRa-Kj-qov"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GHF-3o-lQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="-553"/>
         </scene>
     </scenes>
     <resources>
