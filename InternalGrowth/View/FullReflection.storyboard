@@ -10,7 +10,6 @@
         <!--FullReflection-->
         <scene sceneID="8bZ-33-hSM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WTM-7P-jpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="FullReflection" title="FullReflection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RTE-Qk-U6D" customClass="FullReflectionViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iYa-ga-lgf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -90,6 +89,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-ZN-xRI">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="22"/>
                                                 <state key="normal" image="mic.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onAudioButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="g3Q-jP-VXR"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWn-LN-6fY">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="22"/>
@@ -154,9 +156,13 @@
                     <navigationItem key="navigationItem" id="mIv-QA-lr7"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="audioButton" destination="a0d-ZN-xRI" id="3eL-q3-w04"/>
                         <outlet property="promptInspirationButton" destination="fDA-Qy-wkS" id="1Q0-xl-uer"/>
+                        <outlet property="textButton" destination="gXs-0e-jW5" id="vTB-pt-Zj3"/>
+                        <outlet property="videoButton" destination="eWn-LN-6fY" id="tlj-O2-otk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTM-7P-jpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-917" y="-595"/>
         </scene>
