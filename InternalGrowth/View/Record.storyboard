@@ -14,16 +14,34 @@
                     <view key="view" contentMode="scaleToFill" id="TlG-dm-UQg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIg-VW-rDO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Pfg-Qk-XOS"/>
                     </view>
                     <connections>
-                        <outlet property="camPreview" destination="TlG-dm-UQg" id="K9K-6O-a2p"/>
+                        <outlet property="camPreview" destination="eIg-VW-rDO" id="pQS-1N-ct9"/>
+                        <segue destination="ngk-7s-ZSY" kind="show" id="GAZ-0c-Dn9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DQe-fr-jwd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130" y="93"/>
+            <point key="canvasLocation" x="128.98550724637681" y="92.410714285714278"/>
+        </scene>
+        <!--VideoPlayback-->
+        <scene sceneID="N3E-aP-1kX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VideoPlayback" id="ngk-7s-ZSY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BuC-5p-OCR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="foL-lj-G3b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="775" y="75"/>
         </scene>
     </scenes>
 </document>

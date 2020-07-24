@@ -8,7 +8,6 @@
 
 import UIKit
 import AVFoundation
-import SafariServices
 
 class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelegate {
 
@@ -62,11 +61,12 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
          captureSession.sessionPreset = AVCaptureSession.Preset.high
      
          // Setup Camera
-         let camera = AVCaptureDevice.default(for: AVMediaType.video)!
+        let camera = AVCaptureDevice.default(for: AVMediaType.video)!
+        print(AVCaptureDevice.default(for: AVMediaType.video))
      
          do {
          
-             let input = try AVCaptureDeviceInput(device: camera)
+            let input = try AVCaptureDeviceInput(device: camera)
          
              if captureSession.canAddInput(input) {
                  captureSession.addInput(input)
@@ -217,7 +217,7 @@ class RecordViewController: UIViewController, AVCaptureFileOutputRecordingDelega
     }
 
      func capture(_ captureOutput: AVCaptureFileOutput!, didStartRecordingToOutputFileAt fileURL: URL!, fromConnections connections: [Any]!) {
-     
+        // Add code to run once video starts recording
      }
 
      func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
