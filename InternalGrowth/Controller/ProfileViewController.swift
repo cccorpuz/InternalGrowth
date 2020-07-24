@@ -1,5 +1,5 @@
 //
-//  SignUpViewController.swift
+//  ProfileViewController.swift
 //  InternalGrowth
 //
 //  Created by Crispin Corpuz on 7/23/20.
@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
-class SignUpViewController: UIViewController {
+class ProfileViewController: UIViewController {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +19,20 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onSignOutButtonPressed(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.performSegue(withIdentifier: "LogoutSegue", sender: self)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+          
+    }
+    
+    @IBAction func onGoBackButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

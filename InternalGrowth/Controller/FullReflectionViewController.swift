@@ -17,6 +17,8 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
+    @IBOutlet weak var dayRatingSlider: UISlider!
+    @IBOutlet weak var sentimentLabel: UILabel!
     
     // Recording variables
     var audioRecordingSession : AVAudioSession!
@@ -25,7 +27,8 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+        self.updateSentimentLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +79,43 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             startRecording()
         } else {
             finishRecording(success: true)
+        }
+    }
+    @IBAction func onDayRatingSliderChanged(_ sender: Any) {
+        var level = dayRatingSlider.value
+        updateSentimentLabel(with: level)
+    }
+    
+    // MARK: - UI Functions
+    func updateSentimentLabel(with level: Float = 0)
+    {
+        if level > 80
+        {
+            self.sentimentLabel.text = "😇"
+        }
+        else if level > 40
+        {
+            self.sentimentLabel.text = "😀"
+        }
+        else if level > 10
+        {
+            self.sentimentLabel.text = "🙃"
+        }
+        else if level > -10
+        {
+            self.sentimentLabel.text = "🤨"
+        }
+        else if level > -40
+        {
+            self.sentimentLabel.text = "😕"
+        }
+        else if level > -80
+        {
+            self.sentimentLabel.text = "🥴"
+        }
+        else
+        {
+            self.sentimentLabel.text = "🤬"
         }
     }
     

@@ -47,15 +47,18 @@ class MainViewController: UIViewController, FloatyDelegate {
     
     // MARK: - View functions
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
       
-      generateFloatingButton()
+        generateFloatingButton()
         
         // Find the button's width and height
         buttonWidth = QuickPrompt1Button.frame.width
+        print(buttonWidth)
 
         // Find the width and height of the enclosing view
         viewWidth = QuickPrompt1Button.superview!.bounds.width
+        print(viewWidth)
+        
         
         timer1 = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(timerAction1), userInfo: self, repeats: true)
         
@@ -68,8 +71,6 @@ class MainViewController: UIViewController, FloatyDelegate {
                 
         // Background color setting
         createGradientLayer()
-        
-
         
         // To give buttons rounded corners:
         QuickPrompt1Button.layer.cornerRadius = 30;
@@ -187,6 +188,23 @@ class MainViewController: UIViewController, FloatyDelegate {
         }
         floaty.addItem(item: goToLibrary)
         
+        // Go to profile page
+        let accountLogout = FloatyItem()
+        accountLogout.hasShadow = true
+        accountLogout.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        accountLogout.circleShadowColor = UIColor.gray
+        accountLogout.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        accountLogout.titleLabelPosition = .left
+        accountLogout.title = "Profile"
+        accountLogout.handler = { item in
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let profileViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController")
+            profileViewController.modalPresentationStyle = .fullScreen
+            self.present(profileViewController, animated: true, completion: nil)
+        }
+        floaty.addItem(item: accountLogout)
+        
+        // Big plus button has a shadow
         floaty.hasShadow = true
 
         // padding at bottom right of screen
@@ -197,22 +215,23 @@ class MainViewController: UIViewController, FloatyDelegate {
       
     }
     
+    //MARK: - Timers for button clouds
     @objc func timerAction1() {
-        if QuickPrompt1Button.center.x == viewWidth + buttonWidth / 2 {
+        if QuickPrompt1Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt1Button.center.x = CGFloat.init() - buttonWidth / 2
         }
         QuickPrompt1Button.center.x += 1
     }
     
     @objc func timerAction2() {
-        if QuickPrompt2Button.center.x == viewWidth + buttonWidth / 2 {
+        if QuickPrompt2Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt2Button.center.x = CGFloat.init() - buttonWidth / 2
         }
         QuickPrompt2Button.center.x += 1
     }
     
     @objc func timerAction3() {
-        if QuickPrompt3Button.center.x == viewWidth + buttonWidth / 2 {
+        if QuickPrompt3Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt3Button.center.x = CGFloat.init() - buttonWidth / 2
         }
         QuickPrompt3Button.center.x += 1

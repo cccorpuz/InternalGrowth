@@ -48,39 +48,39 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qwc-Yo-NIe">
-                                        <rect key="frame" x="0.0" y="30.5" width="414" height="20"/>
+                                        <rect key="frame" x="0.0" y="30.5" width="414" height="100"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.heavyrain.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pf4-ZP-qVi">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="21.5"/>
-                                                <color key="tintColor" red="1" green="0.26372094008432834" blue="0.25026311866359674" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud.sun.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Q5z-2A-Y8a">
-                                                <rect key="frame" x="138" y="-1.5" width="138" height="19"/>
-                                                <color key="tintColor" red="0.99366680026665066" green="1" blue="0.39344121659136555" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun.max.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hg2-K1-RgY">
-                                                <rect key="frame" x="276" y="-0.5" width="138" height="20.5"/>
-                                                <color key="tintColor" red="0.48168837269988929" green="1" blue="0.11571851050604276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs0-ew-ToC">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="sZA-Dg-A9t"/>
+                                        </constraints>
                                     </stackView>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-cN-VVS">
-                                        <rect key="frame" x="-2" y="60.5" width="418" height="31"/>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-cN-VVS">
+                                        <rect key="frame" x="-2" y="140.5" width="418" height="31"/>
+                                        <connections>
+                                            <action selector="onDayRatingSliderChanged:" destination="RTE-Qk-U6D" eventType="valueChanged" id="E9Y-GV-6dV"/>
+                                        </connections>
                                     </slider>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-Qy-wkS">
-                                        <rect key="frame" x="0.0" y="100.5" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="180.5" width="414" height="30"/>
                                         <color key="backgroundColor" red="0.74555195347423453" green="0.57370233870246912" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Click me for prompt inspiration!">
                                             <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What will you reflect on today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-hS-VLX">
-                                        <rect key="frame" x="0.0" y="140.5" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="220.5" width="414" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-nW-nBK">
-                                        <rect key="frame" x="0.0" y="184.5" width="414" height="22"/>
+                                        <rect key="frame" x="0.0" y="264.5" width="414" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-0e-jW5">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="22"/>
@@ -103,22 +103,22 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-tp-BoQ">
-                                        <rect key="frame" x="0.0" y="216.5" width="414" height="571.5"/>
+                                        <rect key="frame" x="0.0" y="296.5" width="414" height="491.5"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q2x-LO-UYb">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="487.5"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q2x-LO-UYb">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="407.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="yes"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reflection Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkj-n0-7kc">
-                                                <rect key="frame" x="0.0" y="497.5" width="414" height="34"/>
+                                                <rect key="frame" x="0.0" y="417.5" width="414" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-np-bTs">
-                                                <rect key="frame" x="0.0" y="541.5" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="461.5" width="414" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOl-Vt-b0i">
                                                         <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
@@ -160,7 +160,9 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="audioButton" destination="a0d-ZN-xRI" id="3eL-q3-w04"/>
+                        <outlet property="dayRatingSlider" destination="qIH-cN-VVS" id="Kj7-hq-D46"/>
                         <outlet property="promptInspirationButton" destination="fDA-Qy-wkS" id="1Q0-xl-uer"/>
+                        <outlet property="sentimentLabel" destination="fs0-ew-ToC" id="IQu-jU-OEy"/>
                         <outlet property="textButton" destination="gXs-0e-jW5" id="vTB-pt-Zj3"/>
                         <outlet property="videoButton" destination="eWn-LN-6fY" id="tlj-O2-otk"/>
                     </connections>
@@ -181,11 +183,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloud.heavyrain.fill" catalog="system" width="128" height="125"/>
-        <image name="cloud.sun.fill" catalog="system" width="128" height="88"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
-        <image name="sun.max.fill" catalog="system" width="128" height="124"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
     </resources>
 </document>
