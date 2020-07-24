@@ -198,24 +198,30 @@ class MainViewController: UIViewController, FloatyDelegate {
     }
     
     @objc func timerAction1() {
-        if QuickPrompt1Button.center.x == viewWidth + buttonWidth / 2 {
+        if QuickPrompt1Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt1Button.center.x = CGFloat.init() - buttonWidth / 2
         }
-        QuickPrompt1Button.center.x += 1
+        else {
+            QuickPrompt1Button.center.x += 1
+        }
     }
     
     @objc func timerAction2() {
-        if QuickPrompt2Button.center.x == viewWidth + buttonWidth / 2 {
+        if QuickPrompt2Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt2Button.center.x = CGFloat.init() - buttonWidth / 2
         }
-        QuickPrompt2Button.center.x += 1
+        else {
+            QuickPrompt2Button.center.x += 1
+        }
     }
     
     @objc func timerAction3() {
-        if QuickPrompt3Button.center.x == viewWidth + buttonWidth / 2 {
+        if QuickPrompt3Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt3Button.center.x = CGFloat.init() - buttonWidth / 2
         }
-        QuickPrompt3Button.center.x += 1
+        else {
+            QuickPrompt3Button.center.x += 1
+        }
     }
     
     // MARK: - Floaty Delegate Methods
