@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
 
@@ -19,11 +20,17 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var textButton: UIButton!
     @IBOutlet weak var dayRatingSlider: UISlider!
     @IBOutlet weak var sentimentLabel: UILabel!
+    @IBOutlet weak var reflectionTextView: UITextView!
+    @IBOutlet weak var promptTextField: UITextField!
+    @IBOutlet weak var keywordTextField: UITextField!
     
     // Recording variables
     var audioRecordingSession : AVAudioSession!
     var audioRecorder : AVAudioRecorder!
     
+    // Data Model variables
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +57,25 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         _ = self.dismiss(animated: true, completion: nil)
     }
     
+    // Works with CoreData to save locally
     @IBAction func onGrowButtonPressed(_ sender: Any) {
+        let item = ReflectionEntry(context: self.context)
+        if let prompt = promptTextField.text {
+            item.prompt = prompt
+        }
+        if let reflection = reflectionTextView.text {
+            item.textReflection = reflection
+        }
+        if let keyword = keywordTextField.text {
+            item.keyword = keyword
+        }
+        let dateSaved = formatter.string(from: Date())
+        item.date = dateSaved
+        let moodLevel = dayRatingSlider.value
+        item.sentimentLevel = moodLevel
+//        item.parentExperience
+        itemArray.append(item)
+        saveItems()
         _ = self.dismiss(animated: true, completion: nil)
     }
     @IBAction func onAudioButtonPressed(_ sender: Any) {
@@ -81,9 +106,27 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             finishRecording(success: true)
         }
     }
+    
+    @IBAction func onChooseExperienceButtonPressed(_ sender: Any) {
+        choosingExperience = true
+    }
+    
     @IBAction func onDayRatingSliderChanged(_ sender: Any) {
         var level = dayRatingSlider.value
         updateSentimentLabel(with: level)
+    }
+    
+    // MARK: - CoreData functions
+    
+    func saveItems() {
+        
+        do {
+          try context.save()
+        } catch {
+           print("Error saving context in Full Reflection, with debug error: \(error)")
+        }
+        
+        // self.tableView.reloadData()
     }
     
     // MARK: - UI Functions

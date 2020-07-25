@@ -28,10 +28,10 @@ class PastReflectionViewController: UIViewController {
         formatter.dateStyle = .short
         
         // Updating views based on info
-        reflectionPromptLabel.text = reflections[selectedReflection].prompt
-        keywordLabel.text = reflections[selectedReflection].keyword
-        dateTimeLabel.text = formatter.string(from: reflections[selectedReflection].date)
-        reflectionTextView.text = reflections[selectedReflection].reflection
+        reflectionPromptLabel.text = itemArray[selectedReflection].prompt
+        keywordLabel.text = itemArray[selectedReflection].keyword
+        dateTimeLabel.text = itemArray[selectedReflection].date
+        reflectionTextView.text = itemArray[selectedReflection].textReflection
     }
     
     @IBAction func onEditButtonPressed(_ sender: Any) {

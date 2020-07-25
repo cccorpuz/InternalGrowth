@@ -8,17 +8,8 @@
 
 import Foundation
 
-var reflections : [Reflection] = []
+var itemArray : [ReflectionEntry] = [ReflectionEntry]()
 var selectedReflection : Int = 0
 
 // Placeholder dates
 let formatter = DateFormatter()
-
-struct Reflection
-{
-	var prompt : String
-	var reflection : String
-    var keyword : String
-    let date : Date
-}
-

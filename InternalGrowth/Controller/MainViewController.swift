@@ -24,7 +24,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     var timer2 = Timer()                // Timer to move buttons across screen
     var timer3 = Timer()                // Timer to move buttons across screen
     
-    // Main page views
+    // MARK: - IBActions
     @IBOutlet weak var QuickPrompt1Button : UIButton!
     @IBOutlet weak var QuickPrompt2Button : UIButton!
     @IBOutlet weak var QuickPrompt3Button : UIButton!
@@ -182,7 +182,7 @@ class MainViewController: UIViewController, FloatyDelegate {
         goToLibrary.title = "Reflection Timeline"
         goToLibrary.handler = {item in
             let storyBoard : UIStoryboard = UIStoryboard(name: "Timeline", bundle: nil)
-            let reflectionTimelineViewController = storyBoard.instantiateViewController(withIdentifier: "ReflectionTimeline")
+            let reflectionTimelineViewController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigation")
             reflectionTimelineViewController.modalPresentationStyle = .fullScreen
             self.present(reflectionTimelineViewController, animated: true, completion: nil)
         }
@@ -253,6 +253,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     func floatyDidClose(_ floaty: Floaty) {
       print("Floaty Did Close")
     }
-
 }
+
+
 

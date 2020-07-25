@@ -10,8 +10,16 @@ import UIKit
 
 class QuickReflectionViewController: UIViewController {
 
-    @IBOutlet weak var reflectionLabel: UILabel!
+    // MARK: - Global Variables
+    @IBOutlet weak var promptLabel: UILabel!
+    @IBOutlet weak var reflectionTextView: UITextView!
+    @IBOutlet weak var keywordTextField: UITextField!
     
+    // Core Data fields
+    var itemArray = [ReflectionEntry]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // MARK: - View functions
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +29,40 @@ class QuickReflectionViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reflectionLabel.text = prompt
+        promptLabel.text = prompt
     }
     
+    // MARK: - IBAction functions
     @IBAction func onCancelButtonPressed(_ sender: Any) {
         _ = self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onGrowButtonPressed(_ sender: Any) {
+        let item = ReflectionEntry(context: self.context)
+        if let title = promptLabel.text {
+            item.prompt = title
+        }
+        if let reflection = reflectionTextView.text {
+            item.textReflection = reflection
+        }
+        if let keyword = keywordTextField.text {
+            item.keyword = keyword
+        }
+        itemArray.append(item)
+        saveItems()
         _ = self.dismiss(animated: true, completion: nil)
+    }
+    // MARK: - CoreData functions
+    
+    func saveItems() {
+        
+        do {
+          try context.save()
+        } catch {
+           print("Error saving context in Quick Reflection, with debug error: \(error)")
+        }
+        
+        // self.tableView.reloadData()
     }
     /*
     // MARK: - Navigation

@@ -29,6 +29,8 @@
 		6CEE249924C25DEC000C75D1 /* Prompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEE249824C25DEC000C75D1 /* Prompts.swift */; };
 		6CEE249B24C25DFA000C75D1 /* QuickReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEE249A24C25DFA000C75D1 /* QuickReflectionViewController.swift */; };
 		6CEF0E9F24C9F9BE00140B1C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CEF0E9E24C9F9BE00140B1C /* LoginViewController.swift */; };
+		6CF8D26524CB774200406A9C /* ExperiencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8D26424CB774200406A9C /* ExperiencesViewController.swift */; };
+		6CF8D26724CBFC4300406A9C /* Experiences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF8D26624CBFC4300406A9C /* Experiences.swift */; };
 		6CFAFBC924C4C94700E23232 /* FullReflection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CFAFBC824C4C94700E23232 /* FullReflection.storyboard */; };
 		6CFAFBCB24C4CAA900E23232 /* FullReflectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFAFBCA24C4CAA900E23232 /* FullReflectionViewController.swift */; };
 		6CFAFBCD24C4D99E00E23232 /* PastReflection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CFAFBCC24C4D99E00E23232 /* PastReflection.storyboard */; };
@@ -62,7 +64,8 @@
 		6CEE249824C25DEC000C75D1 /* Prompts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompts.swift; sourceTree = "<group>"; usesTabs = 1; };
 		6CEE249A24C25DFA000C75D1 /* QuickReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickReflectionViewController.swift; sourceTree = "<group>"; };
 		6CEF0E9E24C9F9BE00140B1C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		6CEF0EA024C9F9C600140B1C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
+		6CF8D26424CB774200406A9C /* ExperiencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperiencesViewController.swift; sourceTree = "<group>"; };
+		6CF8D26624CBFC4300406A9C /* Experiences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experiences.swift; sourceTree = "<group>"; };
 		6CFAFBC824C4C94700E23232 /* FullReflection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FullReflection.storyboard; sourceTree = "<group>"; };
 		6CFAFBCA24C4CAA900E23232 /* FullReflectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullReflectionViewController.swift; sourceTree = "<group>"; };
 		6CFAFBCC24C4D99E00E23232 /* PastReflection.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PastReflection.storyboard; sourceTree = "<group>"; };
@@ -121,16 +124,17 @@
 		6CC4159224BF7C26007B4546 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4F3CA92D24CA2A10002A718A /* VideoPlaybackViewController.swift */,
-				4FA9EAF224CA0BAE00010A7F /* RecordViewController.swift */,
-				6CEA923524BE419800C9AA92 /* MainViewController.swift */,
-				6CEA923724BE419800C9AA92 /* TimelineViewController.swift */,
-				6CEE249A24C25DFA000C75D1 /* QuickReflectionViewController.swift */,
 				6CEF0E9E24C9F9BE00140B1C /* LoginViewController.swift */,
-				6CB00C1624CA2EE800B3BAD6 /* ProfileViewController.swift */,
+				6CEA923524BE419800C9AA92 /* MainViewController.swift */,
+				6CEE249A24C25DFA000C75D1 /* QuickReflectionViewController.swift */,
 				6CFAFBCA24C4CAA900E23232 /* FullReflectionViewController.swift */,
+				6CEA923724BE419800C9AA92 /* TimelineViewController.swift */,
+				6CF8D26424CB774200406A9C /* ExperiencesViewController.swift */,
 				6CFAFBCE24C4D9AC00E23232 /* PastReflectionViewController.swift */,
+				4F3CA92D24CA2A10002A718A /* VideoPlaybackViewController.swift */,
 				6CFAFBD624C4F52B00E23232 /* ReflectionCells.swift */,
+				4FA9EAF224CA0BAE00010A7F /* RecordViewController.swift */,
+				6CB00C1624CA2EE800B3BAD6 /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,6 +144,7 @@
 			children = (
 				6CEE249824C25DEC000C75D1 /* Prompts.swift */,
 				6CFAFBD024C4E15200E23232 /* Reflections.swift */,
+				6CF8D26624CBFC4300406A9C /* Experiences.swift */,
 			);
 			name = Model;
 			path = Controller/Model;
@@ -263,7 +268,6 @@
 				6CEE249724C25D62000C75D1 /* QuickReflection.storyboard in Resources */,
 				6CEA923B24BE419800C9AA92 /* Main.storyboard in Resources */,
 				4F3CA92C24CA29DE002A718A /* VideoPlayback.storyboard in Resources */,
-				6CEF0E9B24C9F9AA00140B1C /* Login.storyboard in Resources */,
 				4FA9EAF124CA094700010A7F /* Record.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,8 +323,10 @@
 			files = (
 				6CFAFBD124C4E15200E23232 /* Reflections.swift in Sources */,
 				6CEA923824BE419800C9AA92 /* TimelineViewController.swift in Sources */,
+				6CF8D26724CBFC4300406A9C /* Experiences.swift in Sources */,
 				6CEE249B24C25DFA000C75D1 /* QuickReflectionViewController.swift in Sources */,
 				6CB00C1B24CA79C800B3BAD6 /* DataModel.xcdatamodeld in Sources */,
+				6CF8D26524CB774200406A9C /* ExperiencesViewController.swift in Sources */,
 				6CEE249924C25DEC000C75D1 /* Prompts.swift in Sources */,
 				6CFAFBCF24C4D9AC00E23232 /* PastReflectionViewController.swift in Sources */,
 				4FA9EAF324CA0BAE00010A7F /* RecordViewController.swift in Sources */,

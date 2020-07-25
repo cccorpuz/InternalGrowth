@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Reflections" representedClassName="Reflections" syncable="YES" codeGenerationType="class">
+    <entity name="Experience" representedClassName=".Experience" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="reflections" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ReflectionEntry" inverseName="parentExperience" inverseEntity="ReflectionEntry"/>
+    </entity>
+    <entity name="ReflectionEntry" representedClassName=".ReflectionEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="keyword" attributeType="String"/>
-        <attribute name="prompt" optional="YES" attributeType="String"/>
+        <attribute name="prompt" attributeType="String"/>
         <attribute name="sentimentLevel" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="textReflection" optional="YES" attributeType="String"/>
+        <relationship name="parentExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experience" inverseName="reflections" inverseEntity="Experience"/>
     </entity>
     <elements>
-        <element name="Reflections" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Experience" positionX="-261.7109375" positionY="12.328125" width="128" height="73"/>
+        <element name="ReflectionEntry" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

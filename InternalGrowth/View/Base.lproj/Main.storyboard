@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-2404" y="-305"/>
         </scene>
-        <!--HomeScreenViewController-->
+        <!--HomeScreen-->
         <scene sceneID="OXN-QS-crx">
             <objects>
-                <viewController title="HomeScreenViewController" modalPresentationStyle="fullScreen" id="h5e-PB-l04" customClass="MainViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreen" title="HomeScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h5e-PB-l04" customClass="MainViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8B-uB-qXm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

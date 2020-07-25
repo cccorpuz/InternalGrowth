@@ -96,7 +96,9 @@
                         <viewLayoutGuide key="safeArea" id="1u6-fs-HxG"/>
                     </view>
                     <connections>
-                        <outlet property="reflectionLabel" destination="ouM-Vy-puv" id="70i-Di-xDU"/>
+                        <outlet property="keywordTextField" destination="RrF-bc-073" id="AAs-op-QXP"/>
+                        <outlet property="promptLabel" destination="ouM-Vy-puv" id="Oqf-FG-Gtu"/>
+                        <outlet property="reflectionTextView" destination="teF-6s-zjI" id="bX6-9s-1X1"/>
                         <segue destination="O48-Bf-ilj" kind="show" id="hRF-tA-Zs1"/>
                     </connections>
                 </viewController>
