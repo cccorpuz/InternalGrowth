@@ -35,6 +35,9 @@ class ExperiencesViewController: UITableViewController {
     }
 
     @IBAction func onInfoButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "How This Page Works", message: "\n 1. Click on the \"+\" to add an experience you want to reflect on.\n\n 2. Swipe left to delete an experience.\n\n 3. Click on the experience to see your Reflection Timeline!" , preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func unwind(_ seg: UIStoryboardSegue) {

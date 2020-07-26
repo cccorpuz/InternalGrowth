@@ -114,7 +114,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
-                    self.performSegue(withIdentifier: "GoToMainSegue", sender: self)
+                    if self.signedIn {
+                        self.signedIn = false
+                        self.signingIn = true
+                    } else {
+                        self.performSegue(withIdentifier: "GoToMainSegue", sender: self)
+                    }
                 }
             }
         }
