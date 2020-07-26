@@ -13,9 +13,11 @@ class ExperiencesViewController: UITableViewController {
     
     // MARK: - Global Variables
     
-    var experiences = [Experience]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
+    
+    @IBOutlet weak var infoButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var experiencesSearchBar: UISearchBar!
     
     // MARK: - View Functions
     override func viewDidLoad() {
@@ -30,6 +32,13 @@ class ExperiencesViewController: UITableViewController {
     // MARK: - IBActions
     @IBAction func onDoneButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    @IBAction func onInfoButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+        
     }
     
 
@@ -55,23 +64,41 @@ class ExperiencesViewController: UITableViewController {
         
         if choosingExperience
         {
+            targetExperience = experiences[tableView.indexPathForSelectedRow!.row]
+            print(targetExperience!.name!)
+            targetExperienceString = targetExperience!.name!
             self.dismiss(animated: true, completion: nil)
-            selectedExperience = experiences[tableView.indexPathForSelectedRow!.row].name!
-            print(selectedExperience)
             choosingExperience = false
-        }
-        else
-        {
+        }  else {
             performSegue(withIdentifier: "goToItems", sender: self)
         }
     }
     
     // Bringing up reflections specific to selected experience
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! TimelineViewController
-        
+
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedExperience = experiences[indexPath.row]
+            selectedExperience = experiences[indexPath.row]
+        }
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let alert = UIAlertController(title: "Do you want to delete this experience?", message: "This action is irreversible and this experience and ALL associated reflections will be lost forever. Continue?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+                self.loadExperiences()
+                let commit = experiences[indexPath.row]
+                self.context.delete(commit)
+                experiences.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.saveExperiences()
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
@@ -83,18 +110,7 @@ class ExperiencesViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -138,7 +154,7 @@ class ExperiencesViewController: UITableViewController {
         
         let request : NSFetchRequest<Experience> = Experience.fetchRequest()
         
-        do{
+        do {
             experiences = try context.fetch(request)
         } catch {
             print("Error loading categories \(error)")
@@ -148,7 +164,7 @@ class ExperiencesViewController: UITableViewController {
         
     }
     
-    //MARK: - Add New Categories
+    //MARK: - Add New Experiences
 
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -161,10 +177,11 @@ class ExperiencesViewController: UITableViewController {
             let newExperience = Experience(context: self.context)
             newExperience.name = textField.text!
             
-            self.experiences.append(newExperience)
-            
-            self.saveExperiences()
-            
+            if !newExperience.name!.isEmpty
+            {
+                experiences.insert(newExperience, at: 0)
+                self.saveExperiences()
+            }
         }
         
         alert.addAction(action)

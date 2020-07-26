@@ -103,17 +103,17 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-tp-BoQ">
-                                        <rect key="frame" x="0.0" y="296.5" width="414" height="440.5"/>
+                                        <rect key="frame" x="0.0" y="296.5" width="414" height="410.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q2x-LO-UYb">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="396.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="366.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" smartDashesType="yes"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reflection Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkj-n0-7kc">
-                                                <rect key="frame" x="0.0" y="406.5" width="414" height="34"/>
+                                                <rect key="frame" x="0.0" y="376.5" width="414" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -125,15 +125,21 @@
                                             <constraint firstItem="Q2x-LO-UYb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5JS-tp-BoQ" secondAttribute="top" id="edI-OI-VcS"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="aoK-Ca-B6K">
-                                        <rect key="frame" x="0.0" y="747" width="414" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aoK-Ca-B6K">
+                                        <rect key="frame" x="0.0" y="717" width="414" height="60"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-h8-PVc">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflecting on:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7H-TD-wYM">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-h8-PVc">
+                                                <rect key="frame" x="0.0" y="30" width="414" height="30"/>
+                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Choose Experience"/>
                                                 <connections>
                                                     <action selector="onChooseExperienceButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="VBW-Ri-kam"/>
-                                                    <segue destination="U3B-lx-1Su" kind="show" id="X1T-qb-axB"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -143,6 +149,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOl-Vt-b0i">
                                                 <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Cancel..."/>
                                                 <connections>
                                                     <action selector="onCancelButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="q8m-vF-dk5"/>
@@ -150,6 +157,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl4-fO-fmT">
                                                 <rect key="frame" x="217" y="0.0" width="197" height="30"/>
+                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Grow!"/>
                                                 <connections>
                                                     <action selector="onGrowButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="GfZ-ii-Vjp"/>
@@ -173,14 +181,19 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="audioButton" destination="a0d-ZN-xRI" id="3eL-q3-w04"/>
+                        <outlet property="cancelButton" destination="yOl-Vt-b0i" id="TbL-gS-T0V"/>
+                        <outlet property="chooseExperienceButton" destination="dcX-h8-PVc" id="MqD-Jj-qzb"/>
                         <outlet property="dayRatingSlider" destination="qIH-cN-VVS" id="Kj7-hq-D46"/>
+                        <outlet property="growButton" destination="Fl4-fO-fmT" id="KeU-J6-EWE"/>
                         <outlet property="keywordTextField" destination="mkj-n0-7kc" id="Euy-MR-PJc"/>
                         <outlet property="promptInspirationButton" destination="fDA-Qy-wkS" id="1Q0-xl-uer"/>
                         <outlet property="promptTextField" destination="xkJ-hS-VLX" id="Caf-Jz-nWP"/>
                         <outlet property="reflectionTextView" destination="Q2x-LO-UYb" id="jdZ-C8-bKY"/>
                         <outlet property="sentimentLabel" destination="fs0-ew-ToC" id="IQu-jU-OEy"/>
+                        <outlet property="targetExperienceLabel" destination="X7H-TD-wYM" id="AdA-jV-UdP"/>
                         <outlet property="textButton" destination="gXs-0e-jW5" id="vTB-pt-Zj3"/>
                         <outlet property="videoButton" destination="eWn-LN-6fY" id="tlj-O2-otk"/>
+                        <segue destination="U3B-lx-1Su" kind="show" identifier="chooseExperienceSegueFromFullReflection" id="zwU-XG-D7h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTM-7P-jpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

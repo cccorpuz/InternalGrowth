@@ -189,20 +189,20 @@ class MainViewController: UIViewController, FloatyDelegate {
         floaty.addItem(item: goToLibrary)
         
         // Go to profile page
-        let accountLogout = FloatyItem()
-        accountLogout.hasShadow = true
-        accountLogout.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
-        accountLogout.circleShadowColor = UIColor.gray
-        accountLogout.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
-        accountLogout.titleLabelPosition = .left
-        accountLogout.title = "Profile"
-        accountLogout.handler = { item in
+        let profile = FloatyItem()
+        profile.hasShadow = true
+        profile.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        profile.circleShadowColor = UIColor.gray
+        profile.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        profile.titleLabelPosition = .left
+        profile.title = "Profile"
+        profile.handler = { item in
             let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-            let profileViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController")
+            let profileViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigation")
             profileViewController.modalPresentationStyle = .fullScreen
             self.present(profileViewController, animated: true, completion: nil)
         }
-        floaty.addItem(item: accountLogout)
+        floaty.addItem(item: profile)
         
         // Big plus button has a shadow
         floaty.hasShadow = true

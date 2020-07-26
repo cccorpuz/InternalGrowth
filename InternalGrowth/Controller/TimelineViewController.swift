@@ -12,18 +12,13 @@ import CoreData
 class TimelineViewController: UITableViewController {
     
     // MARK: - Global Variables
-    var itemArray = [ReflectionEntry]()
-    
-    var selectedExperience : Experience? {
-        didSet{
-            loadItems()
-        }
-    }
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - IBOutlets
-
+    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+        
+    }
     
     // MARK: - Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,7 +37,7 @@ class TimelineViewController: UITableViewController {
         print("reflections: ", itemArray.count)
         
         if let keyword = reflection.keyword {
-            cell?.textLabel?.text = keyword + ", " + formatter.string(from: Date())
+            cell?.textLabel?.text = keyword + ", " + reflection.date!
         }
 
         return cell!
@@ -54,6 +49,7 @@ class TimelineViewController: UITableViewController {
         selectedReflection = indexPath.row
         performSegue(withIdentifier: "tableToDetailSegue", sender: cell)
     }
+    
     // MARK: - View functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +61,12 @@ class TimelineViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadItems()
+//        loadItems()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - CoreData Functions
@@ -77,7 +78,7 @@ class TimelineViewController: UITableViewController {
            print("Error saving context \(error)")
         }
         
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     func loadItems(with request: NSFetchRequest<ReflectionEntry> = ReflectionEntry.fetchRequest(), predicate: NSPredicate? = nil) {

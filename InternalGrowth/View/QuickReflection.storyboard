@@ -45,29 +45,45 @@
                                         <rect key="frame" x="0.0" y="62.5" width="414" height="725.5"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="teF-6s-zjI">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="641.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="571"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reflection Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RrF-bc-073">
-                                                <rect key="frame" x="0.0" y="651.5" width="414" height="34"/>
+                                                <rect key="frame" x="0.0" y="581" width="414" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jRp-WG-83Z">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflecting on:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEq-GF-BAp">
+                                                <rect key="frame" x="0.0" y="625" width="414" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8v-OI-qMT">
+                                                <rect key="frame" x="0.0" y="655.5" width="414" height="30"/>
+                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Choose Experience"/>
+                                                <connections>
+                                                    <action selector="onChooseExperienceButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="jcN-Qe-EVJ"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jRp-WG-83Z">
                                                 <rect key="frame" x="0.0" y="695.5" width="414" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHT-Zq-np2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Cancel..."/>
                                                         <connections>
                                                             <action selector="onCancelButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="lZD-yC-L1H"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGn-S0-ia7">
-                                                        <rect key="frame" x="207" y="0.0" width="207" height="30"/>
+                                                        <rect key="frame" x="217" y="0.0" width="197" height="30"/>
+                                                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Grow!"/>
                                                         <connections>
                                                             <action selector="onGrowButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="dx7-pa-QdD"/>
@@ -96,10 +112,14 @@
                         <viewLayoutGuide key="safeArea" id="1u6-fs-HxG"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="dHT-Zq-np2" id="XMU-pw-EPY"/>
+                        <outlet property="chooseExperienceButton" destination="w8v-OI-qMT" id="lrw-Ux-n57"/>
+                        <outlet property="growButton" destination="yGn-S0-ia7" id="MYl-v9-HYV"/>
                         <outlet property="keywordTextField" destination="RrF-bc-073" id="AAs-op-QXP"/>
                         <outlet property="promptLabel" destination="ouM-Vy-puv" id="Oqf-FG-Gtu"/>
                         <outlet property="reflectionTextView" destination="teF-6s-zjI" id="bX6-9s-1X1"/>
                         <segue destination="O48-Bf-ilj" kind="show" id="hRF-tA-Zs1"/>
+                        <segue destination="4gH-Ha-1wA" kind="show" identifier="chooseExperienceSegueFromQuickReflection" id="SNo-9P-WL0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-Fn-zDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -115,6 +135,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHF-3o-lQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="250" y="-553"/>
+        </scene>
+        <!--Timeline-->
+        <scene sceneID="YgZ-xe-HBG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Timeline" id="4gH-Ha-1wA" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1hp-Yg-X5C"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hzt-ps-HO5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="207" y="-269"/>
         </scene>
     </scenes>
     <resources>

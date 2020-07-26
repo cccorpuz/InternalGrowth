@@ -9,29 +9,67 @@
 import UIKit
 
 class QuickReflectionViewController: UIViewController {
+    
 
     // MARK: - Global Variables
     @IBOutlet weak var promptLabel: UILabel!
     @IBOutlet weak var reflectionTextView: UITextView!
     @IBOutlet weak var keywordTextField: UITextField!
+    @IBOutlet weak var chooseExperienceButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var growButton: UIButton!
     
     // Core Data fields
-    var itemArray = [ReflectionEntry]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // String to rename Experience button
+    var newTargetExperience : String = ""
     
     // MARK: - View functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
-
+        if let targetExperience = targetExperience {
+            chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
+        }
+        else
+        {
+            chooseExperienceButton.setTitle("Choose Experience", for: .normal)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         promptLabel.text = prompt
+        chooseExperienceButton.layer.cornerRadius = chooseExperienceButton.frame.size.height/2
+        cancelButton.layer.cornerRadius = cancelButton.frame.size.height/2
+        growButton.layer.cornerRadius = growButton.frame.size.height/2
+        if let targetExperience = targetExperience {
+            chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
+        }
+        else
+        {
+            chooseExperienceButton.setTitle("Choose Experience", for: .normal)
+        }
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        if (segue.identifier == "chooseExperienceSegueFromQuickReflection")
+//        {
+//            let experienceVC = ExperiencesViewController()
+//            experienceVC.delegate = self
+//            present(experienceVC, animated: true)
+//        }
+//        // Pass the selected object to the new view controller.
+//    }
+    
+    // MARK: - UI Functions
+    
+    func updateUI() {
+        chooseExperienceButton.setTitle(newTargetExperience, for: .normal)
+    }
+
     // MARK: - IBAction functions
     @IBAction func onCancelButtonPressed(_ sender: Any) {
         _ = self.dismiss(animated: true, completion: nil)
@@ -39,18 +77,36 @@ class QuickReflectionViewController: UIViewController {
     
     @IBAction func onGrowButtonPressed(_ sender: Any) {
         let item = ReflectionEntry(context: self.context)
-        if let title = promptLabel.text {
-            item.prompt = title
+        if let targetExperience = targetExperience {
+            if let title = promptLabel.text {
+                item.prompt = title
+            }
+            if let reflection = reflectionTextView.text {
+                item.textReflection = reflection
+            }
+            if let keyword = keywordTextField.text {
+                item.keyword = keyword
+            }
+            formatter.timeStyle = .short
+            formatter.dateStyle = .short
+            let dateSaved = formatter.string(from: Date())
+            item.date = dateSaved
+            item.parentExperience = targetExperience
+            itemArray.append(item)
+            saveItems()
+            _ = self.dismiss(animated: true, completion: nil)
         }
-        if let reflection = reflectionTextView.text {
-            item.textReflection = reflection
+        else
+        {
+            let alert = UIAlertController(title: "Incomplete Entry", message: "Please ensure you have a keyword and selected experience to add this reflection to. This helps us help you grow the right tree!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
-        if let keyword = keywordTextField.text {
-            item.keyword = keyword
-        }
-        itemArray.append(item)
-        saveItems()
-        _ = self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func onChooseExperienceButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "chooseExperienceSegueFromQuickReflection", sender: self)
+        choosingExperience = true
     }
     // MARK: - CoreData functions
     

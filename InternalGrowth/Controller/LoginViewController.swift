@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+var userEmail : String?
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - UI Functions
@@ -18,6 +20,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedAround()
+        
+        // Authentication Persistence
+        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser != nil {
+               // User is signed in.
+               // ...
+                if let email = user?.email {
+                    userEmail = email
+                    print(userEmail)
+                }
+                self.signedIn = true
+                self.signingIn = false
+               
+                // Setting view controller
+                if self.signedIn && !self.signingIn {
+                    print("User logged in previously, going to main page")
+                    self.performSegue(withIdentifier: "GoToMainSegue", sender: self)
+                }
+            } else {
+                // No user is signed in.
+                // ...
+                print("User not logged in")
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +63,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - Login page views
     var signingIn : Bool = true
+    var signedIn : Bool = false
 
     @IBOutlet weak var signInUpOptionSegmentedControlOutlet: UISegmentedControl!
     @IBOutlet fileprivate weak var loginTextField: UITextField!
@@ -98,11 +125,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // Check for authentication error
                 if let error = error {
                     print(error.localizedDescription)
-                    let alert = UIAlertController(title: "Signup Error", message: "Email and/or password do not match our records.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Sign In Error", message: "Email and/or password do not match our records.", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Try Again", style: .default, handler: nil))
                     self?.present(alert, animated: true, completion: nil)
                 } else {
-                    self?.performSegue(withIdentifier: "GoToMainSegue", sender: self)
+                    if self!.signedIn {
+                        self!.signedIn = false
+                        self!.signingIn = true
+                    } else {
+                        self?.performSegue(withIdentifier: "GoToMainSegue", sender: self)
+                    }
                 }
             }
         }
