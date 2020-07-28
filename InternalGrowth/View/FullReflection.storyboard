@@ -171,10 +171,10 @@
             </objects>
             <point key="canvasLocation" x="-917" y="-595"/>
         </scene>
-        <!--Record-->
+        <!--Video-->
         <scene sceneID="sf0-fX-kg9">
             <objects>
-                <viewControllerPlaceholder storyboardName="Record" id="sTB-BD-W4E" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Video" id="sTB-BD-W4E" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="y9n-Dk-1re"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kl1-7l-l0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
