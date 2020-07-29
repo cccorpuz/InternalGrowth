@@ -97,7 +97,7 @@
                                                 <rect key="frame" x="276" y="0.0" width="138" height="22"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="sTB-BD-W4E" kind="show" id="Idc-dq-Cjl"/>
+                                                    <segue destination="sTB-BD-W4E" kind="show" id="PTq-VE-pJN"/>
                                                 </connections>
                                             </button>
                                         </subviews>

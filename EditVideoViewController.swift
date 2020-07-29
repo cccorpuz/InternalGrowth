@@ -139,7 +139,7 @@ class EditVideoViewController: UIViewController {
             self.exportDidFinish(exporter)
           }
         }
-      }
+    }
     
     func exportDidFinish(_ session: AVAssetExportSession) {
       

@@ -15,7 +15,7 @@ class RecordVideoViewController: UIViewController {
       
     }
     
-    @IBAction func record(_ sender: AnyObject) {
+    @IBAction func onRecordVideoButtonPressed(_ sender: AnyObject) {
       VideoHelper.startMediaBrowser(delegate: self, sourceType: .camera)
     }
     
