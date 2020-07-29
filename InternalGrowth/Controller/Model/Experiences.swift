@@ -9,6 +9,7 @@
 import Foundation
 
 var experiences : [Experience] = [Experience]()
+var filteredExperiences : [Experience] = [Experience]()
 
 /*
  These variables are responsible for handling the reflections that belong to respective experiences

@@ -16,9 +16,8 @@ class TimelineViewController: UITableViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - IBOutlets
-    @IBAction func unwind(_ seg: UIStoryboardSegue) {
-        
-    }
+    @IBOutlet weak var reflectionSearchBar: UISearchBar!
+    
     
     // MARK: - Table View
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +55,7 @@ class TimelineViewController: UITableViewController {
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        reflectionSearchBar.delegate = self
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         loadItems()
     }
@@ -84,9 +84,10 @@ class TimelineViewController: UITableViewController {
     func loadItems(with request: NSFetchRequest<ReflectionEntry> = ReflectionEntry.fetchRequest(), predicate: NSPredicate? = nil) {
         
         let categoryPredicate = NSPredicate(format: "parentExperience.name MATCHES %@", selectedExperience!.name!)
+        let userPredicate = NSPredicate(format: "userReflectionParent.userEmail MATCHES %@", currentUser!.userEmail!)
         
         if let addtionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, userPredicate, addtionalPredicate])
         } else {
             request.predicate = categoryPredicate
         }
@@ -101,6 +102,7 @@ class TimelineViewController: UITableViewController {
         tableView.reloadData()
         
     }
+
 }
 
 //MARK: - Search bar methods
@@ -111,12 +113,15 @@ extension TimelineViewController: UISearchBarDelegate {
 
         let request : NSFetchRequest<ReflectionEntry> = ReflectionEntry.fetchRequest()
     
-        let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchBar.text!)
+        let predicate = NSPredicate(format: "keyword CONTAINS[cd] %@", searchBar.text!)
         
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(key: "keyword", ascending: true)]
         
         loadItems(with: request, predicate: predicate)
         
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

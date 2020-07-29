@@ -10,10 +10,12 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-var userEmail : String?
-
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    // MARK: - Global var
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+    
     //MARK: - UI Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +24,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         
         // Authentication Persistence
-        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+        let _ = Auth.auth().addStateDidChangeListener { (auth, user) in
             if Auth.auth().currentUser != nil {
                // User is signed in.
                // ...
                 if let email = user?.email {
-                    userEmail = email
-                    print(userEmail)
+                    print(email)
+                    do
+                    {
+                        if try userArray.contains(where: {one in one.userEmail == email}) {
+                            currentUser = userArray.filter({two in two.userEmail == email})[0]
+                        }
+                        else
+                        {
+                            let user = User(context: self.context)
+                            user.userEmail = email
+                            userArray.append(user)
+                            self.saveUsers()
+                            currentUser = user
+                        }
+                    } catch {
+                        print("stuff")
+                    }
                 }
                 self.signedIn = true
                 self.signingIn = false
@@ -42,6 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // No user is signed in.
                 // ...
                 print("User not logged in")
+                targetExperience = nil
             }
         }
     }
@@ -118,6 +136,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.signedIn = false
                         self.signingIn = true
                     } else {
+                        let user = User(context: self.context)
+                        user.userEmail = email
+                        userArray.append(user)
+                        self.saveUsers()
                         self.performSegue(withIdentifier: "GoToMainSegue", sender: self)
                     }
                 }
@@ -151,7 +173,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //MARK: - Handler functions
+    //MARK: - Password Handler functions
     func forgotPassword()
     {
         var textField = UITextField()
@@ -175,9 +197,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
         }
     }
+    
+    // MARK: - CoreData functions
+    
+    func saveUsers() {
+        do {
+         try context.save()
+       } catch {
+          print("Error saving user email, with debug error: \(error)")
+       }
+    }
+    
 }
 
-// Dismissing keyboard
+// MARK: - Dismissing keyboard extension
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

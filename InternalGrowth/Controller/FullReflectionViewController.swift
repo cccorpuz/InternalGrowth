@@ -52,11 +52,15 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
     
+
+    
     override func viewWillAppear(_ animated: Bool) {
         promptInspirationButton.layer.cornerRadius = promptInspirationButton.frame.size.height/2
         chooseExperienceButton.layer.cornerRadius = chooseExperienceButton.frame.size.height/2
         cancelButton.layer.cornerRadius = cancelButton.frame.size.height/2
         growButton.layer.cornerRadius = growButton.frame.size.height/2
+        print(targetExperience?.name)
+        print(targetExperienceString)
         if let targetExperience = targetExperience {
             chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
         }
@@ -126,6 +130,8 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             let moodLevel = dayRatingSlider.value
             item.sentimentLevel = moodLevel
             item.parentExperience = targetExperience
+            item.userReflectionParent = currentUser
+            targetExperience.parentUser = currentUser
             itemArray.append(item)
             saveItems()
             _ = self.dismiss(animated: true, completion: nil)

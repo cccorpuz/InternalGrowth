@@ -92,6 +92,8 @@ class QuickReflectionViewController: UIViewController {
             let dateSaved = formatter.string(from: Date())
             item.date = dateSaved
             item.parentExperience = targetExperience
+            item.userReflectionParent = currentUser
+            targetExperience.parentUser = currentUser
             itemArray.append(item)
             saveItems()
             _ = self.dismiss(animated: true, completion: nil)

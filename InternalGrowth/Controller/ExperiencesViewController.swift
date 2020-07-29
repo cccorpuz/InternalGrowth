@@ -22,7 +22,7 @@ class ExperiencesViewController: UITableViewController {
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        experiencesSearchBar.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         loadExperiences()
@@ -39,11 +39,6 @@ class ExperiencesViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    @IBAction func unwind(_ seg: UIStoryboardSegue) {
-        
-    }
-    
 
     // MARK: - Table view data source
 
@@ -153,16 +148,40 @@ class ExperiencesViewController: UITableViewController {
         
     }
     
-    func loadExperiences() {
+    /*
+     Old loadExperiences() function
+     */
+//    func loadExperiences() {
+//
+//        let request : NSFetchRequest<Experience> = Experience.fetchRequest()
+//
+//        do {
+//            experiences = try context.fetch(request)
+//        } catch {
+//            print("Error loading categories \(error)")
+//        }
+//
+//        tableView.reloadData()
+//
+//    }
+    
+    func loadExperiences(with request: NSFetchRequest<Experience> = Experience.fetchRequest(), predicate: NSPredicate? = nil) {
         
-        let request : NSFetchRequest<Experience> = Experience.fetchRequest()
+        let categoryPredicate = NSPredicate(format: "parentUser.userEmail MATCHES %@", currentUser!.userEmail! )
+        
+        if let addtionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
+
         
         do {
             experiences = try context.fetch(request)
         } catch {
-            print("Error loading categories \(error)")
+            print("Error fetching data from context \(error)")
         }
-       
+        
         tableView.reloadData()
         
     }
@@ -179,6 +198,7 @@ class ExperiencesViewController: UITableViewController {
             
             let newExperience = Experience(context: self.context)
             newExperience.name = textField.text!
+            newExperience.parentUser = currentUser
             
             if !newExperience.name!.isEmpty
             {
@@ -198,4 +218,35 @@ class ExperiencesViewController: UITableViewController {
         
     }
 
+}
+
+//MARK: - Search bar methods
+
+extension ExperiencesViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        let request : NSFetchRequest<Experience> = Experience.fetchRequest()
+    
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@", searchBar.text!)
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+        
+        loadExperiences(with: request, predicate: predicate)
+        
+        DispatchQueue.main.async {
+            searchBar.resignFirstResponder()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            loadExperiences()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+          
+        }
+    }
 }

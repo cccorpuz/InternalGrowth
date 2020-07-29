@@ -9,7 +9,7 @@
         <!--Experiences-->
         <scene sceneID="zbq-Fz-h44">
             <objects>
-                <tableViewController storyboardIdentifier="Experiences" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zik-SN-QaX" customClass="ExperiencesViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Experiences" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zik-SN-QaX" customClass="ExperiencesViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t5L-RB-7Iw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -83,7 +83,7 @@
         <!--Reflection Timeline-->
         <scene sceneID="gGh-8z-kIx">
             <objects>
-                <tableViewController storyboardIdentifier="ReflectionTimeline" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IfT-Zm-2H9" customClass="TimelineViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ReflectionTimeline" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IfT-Zm-2H9" customClass="TimelineViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="npj-0X-fUB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,6 +115,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="reflectionSearchBar" destination="fTk-XW-eAY" id="WL7-mA-0dL"/>
                         <segue destination="Q0h-En-0O6" kind="show" identifier="tableToDetailSegue" id="9zZ-22-iDF"/>
                     </connections>
                 </tableViewController>

@@ -10,7 +10,7 @@
         <!--FullReflection-->
         <scene sceneID="8bZ-33-hSM">
             <objects>
-                <viewController storyboardIdentifier="FullReflection" title="FullReflection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RTE-Qk-U6D" customClass="FullReflectionViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullReflection" title="FullReflection" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RTE-Qk-U6D" customClass="FullReflectionViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iYa-ga-lgf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +193,7 @@
                         <outlet property="targetExperienceLabel" destination="X7H-TD-wYM" id="AdA-jV-UdP"/>
                         <outlet property="textButton" destination="gXs-0e-jW5" id="vTB-pt-Zj3"/>
                         <outlet property="videoButton" destination="eWn-LN-6fY" id="tlj-O2-otk"/>
-                        <segue destination="U3B-lx-1Su" kind="show" identifier="chooseExperienceSegueFromFullReflection" id="zwU-XG-D7h"/>
+                        <segue destination="U3B-lx-1Su" kind="modal" identifier="chooseExperienceSegueFromFullReflection" modalPresentationStyle="fullScreen" id="zwU-XG-D7h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTM-7P-jpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

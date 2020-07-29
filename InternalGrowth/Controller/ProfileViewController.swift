@@ -24,14 +24,13 @@ class ProfileViewController: UIViewController {
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-//        loadExperiences()
-//        loadItems()
+        loadExperiences()
+        loadItems()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        userEmailLabel.text = userEmail
+        userEmailLabel.text = currentUser?.userEmail
         categoriesCountLabel.text = "\(experiences.count)"
         reflectionsCountLabel.text = "\(itemArray.count)"
     }
@@ -64,15 +63,15 @@ class ProfileViewController: UIViewController {
     // Just here to load everything, so profile is correct
 
     func loadItems(with request: NSFetchRequest<ReflectionEntry> = ReflectionEntry.fetchRequest(), predicate: NSPredicate? = nil) {
-        
-        let categoryPredicate = NSPredicate(format: "parentExperience.name MATCHES %@", selectedExperience!.name!)
+    
+        let categoryPredicate = NSPredicate(format: "userReflectionParent.userEmail MATCHES %@", currentUser!.userEmail! )
+
         
         if let addtionalPredicate = predicate {
             request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
         } else {
             request.predicate = categoryPredicate
         }
-
         
         do {
             itemArray = try context.fetch(request)
@@ -82,14 +81,21 @@ class ProfileViewController: UIViewController {
                 
     }
     
-    func loadExperiences() {
+    func loadExperiences(with request: NSFetchRequest<Experience> = Experience.fetchRequest(), predicate: NSPredicate? = nil) {
+    
+        let categoryPredicate = NSPredicate(format: "parentUser.userEmail MATCHES %@", currentUser!.userEmail! )
         
-        let request : NSFetchRequest<Experience> = Experience.fetchRequest()
+        if let addtionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
+
         
         do {
             experiences = try context.fetch(request)
         } catch {
-            print("Error loading categories \(error)")
+            print("Error fetching data from context \(error)")
         }
             
     }
