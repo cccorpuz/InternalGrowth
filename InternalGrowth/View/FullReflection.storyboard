@@ -85,6 +85,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-0e-jW5">
                                                 <rect key="frame" x="0.0" y="0.0" width="138" height="22"/>
                                                 <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onTextButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="39X-Xn-2Cn"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-ZN-xRI">
                                                 <rect key="frame" x="138" y="0.0" width="138" height="22"/>

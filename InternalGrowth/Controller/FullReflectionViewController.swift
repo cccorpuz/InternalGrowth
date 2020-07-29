@@ -90,18 +90,6 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             chooseExperienceButton.setTitle("Choose Experience", for: .normal)
         }
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        if (segue.identifier == "chooseExperienceSegueFromFullReflection")
-//        {
-//            let experienceVC = ExperiencesViewController()
-//            experienceVC.delegate = self
-//            present(experienceVC, animated: true)
-//        }
-//        // Pass the selected object to the new view controller.
-//    }
-
     
     // MARK: - IBActions
     
@@ -110,7 +98,11 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         updateSentimentLabel(with: level)
     }
     
+    @IBAction func onTextButtonPressed(_ sender: Any) {
+        reflectionMedia = "text"
+    }
     @IBAction func onAudioButtonPressed(_ sender: Any) {
+        reflectionMedia = "audio"
         if audioRecorder == nil {
             
             // Audio Recording object
@@ -140,6 +132,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func onVideoButtonPressed(_ sender: Any) {
+        reflectionMedia = "video"
         let alert = UIAlertController(title: "Visual Reflection", message: "Select a source for this reflection:", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Your Videos", style: .default, handler: { (action) in
             VideoHelper.startMediaBrowser(delegate: self, sourceType: .savedPhotosAlbum)
@@ -172,6 +165,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             if let reflection = reflectionTextView.text {
                 item.textReflection = reflection
             }
+            
             item.keyword = keyword
             formatter.timeStyle = .short
             formatter.dateStyle = .short
@@ -179,6 +173,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             item.date = dateSaved
             let moodLevel = dayRatingSlider.value
             item.sentimentLevel = moodLevel
+            item.reflectionType = reflectionMedia
             item.parentExperience = targetExperience
             item.userReflectionParent = currentUser
             targetExperience.parentUser = currentUser
@@ -318,6 +313,7 @@ extension FullReflectionViewController: UIImagePickerControllerDelegate {
         // Handle a movie capture
         print("Handling movie")
         UISaveVideoAtPathToSavedPhotosAlbum(url.path, self, #selector(video(_:didFinishSavingWithError:contextInfo:)), nil)
+        videoURL = url.path
     }
 }
 

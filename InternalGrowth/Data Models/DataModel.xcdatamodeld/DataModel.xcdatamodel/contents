@@ -9,8 +9,10 @@
         <attribute name="date" attributeType="String"/>
         <attribute name="keyword" attributeType="String"/>
         <attribute name="prompt" attributeType="String"/>
+        <attribute name="reflectionType" optional="YES" attributeType="String"/>
         <attribute name="sentimentLevel" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="textReflection" optional="YES" attributeType="String"/>
+        <attribute name="videoReflection" optional="YES" attributeType="String"/>
         <relationship name="parentExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experience" inverseName="reflections" inverseEntity="Experience"/>
         <relationship name="userReflectionParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userReflections" inverseEntity="User"/>
     </entity>
@@ -21,7 +23,7 @@
     </entity>
     <elements>
         <element name="Experience" positionX="-262.2578125" positionY="-25.48046875" width="128" height="88"/>
-        <element name="ReflectionEntry" positionX="-300.7421875" positionY="129.421875" width="128" height="148"/>
+        <element name="ReflectionEntry" positionX="-300.7421875" positionY="129.421875" width="128" height="178"/>
         <element name="User" positionX="-501.24609375" positionY="35.421875" width="128" height="88"/>
     </elements>
 </model>
