@@ -18,7 +18,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var categoriesCountLabel: UILabel!
     @IBOutlet weak var reflectionsCountLabel: UILabel!
-    
+
+    /// This allows CoreData to have a defined context to operate upon when using the four main functions:
+    /// Create, Retrieve, Update, Delete (CRUD).
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // MARK: - View Functions

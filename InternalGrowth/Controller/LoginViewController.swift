@@ -13,21 +13,27 @@ import FirebaseAuth
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Global var
+    
+    /// This allows CoreData to have a defined context to operate upon when using the four main functions:
+    /// Create, Retrieve, Update, Delete (CRUD).
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     
     //MARK: - UI Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Keyboard Pod declaration
         self.hideKeyboardWhenTappedAround()
         
         // Authentication Persistence
+        // Initially will listen for if the user signs in or out
         let _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+            /*
+             This happens if the user is already signed in.
+             userEmail and currentUser are set here if not already done
+             */
             if Auth.auth().currentUser != nil {
-               // User is signed in.
-               // ...
                 if let email = user?.email {
                     print(email)
                     do

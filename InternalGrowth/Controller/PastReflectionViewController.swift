@@ -19,7 +19,8 @@ class PastReflectionViewController: UIViewController {
     @IBOutlet weak var reflectionTextView: UITextView!
     @IBOutlet weak var saveChangesButton: UIButton!
     
-    // Data Model variables
+    /// This allows CoreData to have a defined context to operate upon when using the four main functions:
+    /// Create, Retrieve, Update, Delete (CRUD).
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     // MARK: - View functions

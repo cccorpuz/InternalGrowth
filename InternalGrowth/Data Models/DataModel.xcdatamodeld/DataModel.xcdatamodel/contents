@@ -2,7 +2,6 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Experience" representedClassName=".Experience" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="willDelete" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <relationship name="parentUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="experiences" inverseEntity="User"/>
         <relationship name="reflections" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" ordered="YES" destinationEntity="ReflectionEntry" inverseName="parentExperience" inverseEntity="ReflectionEntry"/>
     </entity>
@@ -21,7 +20,7 @@
         <relationship name="userReflections" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="ReflectionEntry" inverseName="userReflectionParent" inverseEntity="ReflectionEntry"/>
     </entity>
     <elements>
-        <element name="Experience" positionX="-262.2578125" positionY="-25.48046875" width="128" height="103"/>
+        <element name="Experience" positionX="-262.2578125" positionY="-25.48046875" width="128" height="88"/>
         <element name="ReflectionEntry" positionX="-300.7421875" positionY="129.421875" width="128" height="148"/>
         <element name="User" positionX="-501.24609375" positionY="35.421875" width="128" height="88"/>
     </elements>

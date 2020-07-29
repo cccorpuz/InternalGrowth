@@ -32,7 +32,8 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecordingSession : AVAudioSession!
     var audioRecorder : AVAudioRecorder!
     
-    // Data Model variables
+    /// This allows CoreData to have a defined context to operate upon when using the four main functions:
+    /// Create, Retrieve, Update, Delete (CRUD).
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // String to rename Experience button

@@ -12,7 +12,9 @@ import CoreData
 class ExperiencesViewController: UITableViewController {
     
     // MARK: - Global Variables
-    
+
+    /// This allows CoreData to have a defined context to operate upon when using the four main functions:
+    /// Create, Retrieve, Update, Delete (CRUD).
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var infoButton: UIBarButtonItem!
@@ -234,10 +236,8 @@ extension ExperiencesViewController: UISearchBarDelegate {
         
         loadExperiences(with: request, predicate: predicate)
         
-        DispatchQueue.main.async {
-            searchBar.resignFirstResponder()
-        }
     }
+    
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
