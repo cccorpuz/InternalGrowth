@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Experience" representedClassName=".Experience" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="parentUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="experiences" inverseEntity="User"/>
+        <relationship name="reflections" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" ordered="YES" destinationEntity="ReflectionEntry" inverseName="parentExperience" inverseEntity="ReflectionEntry"/>
+    </entity>
+    <entity name="ReflectionEntry" representedClassName=".ReflectionEntry" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="String"/>
+        <attribute name="keyword" attributeType="String"/>
+        <attribute name="prompt" attributeType="String"/>
+        <attribute name="sentimentLevel" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="textReflection" optional="YES" attributeType="String"/>
+        <relationship name="parentExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experience" inverseName="reflections" inverseEntity="Experience"/>
+        <relationship name="userReflectionParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userReflections" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES" codeGenerationType="class">
+        <attribute name="userEmail" optional="YES" attributeType="String"/>
+        <relationship name="experiences" optional="YES" toMany="YES" minCount="1" deletionRule="Cascade" ordered="YES" destinationEntity="Experience" inverseName="parentUser" inverseEntity="Experience"/>
+        <relationship name="userReflections" optional="YES" toMany="YES" minCount="1" deletionRule="Nullify" ordered="YES" destinationEntity="ReflectionEntry" inverseName="userReflectionParent" inverseEntity="ReflectionEntry"/>
+    </entity>
+    <elements>
+        <element name="Experience" positionX="-262.2578125" positionY="-25.48046875" width="128" height="88"/>
+        <element name="ReflectionEntry" positionX="-300.7421875" positionY="129.421875" width="128" height="148"/>
+        <element name="User" positionX="-501.24609375" positionY="35.421875" width="128" height="88"/>
+    </elements>
+</model>

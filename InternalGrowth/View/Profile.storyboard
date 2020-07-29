@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XkJ-Bf-QfD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ProfileNavigation-->
+        <scene sceneID="AFd-Wg-Rmb">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileNavigation" title="ProfileNavigation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XkJ-Bf-QfD" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="j2j-hh-xKM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="09f-Bl-XE1" kind="relationship" relationship="rootViewController" id="o7l-Dg-vVN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QiP-dd-fOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536" y="-304"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="ock-em-Ubb">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="09f-Bl-XE1" customClass="ProfileViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8iO-7j-bWp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="zn2-gs-Imf">
+                                <rect key="frame" x="0.0" y="128" width="414" height="111"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd1-8z-7Id" userLabel="User Email">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-8q-8FO">
+                                        <rect key="frame" x="0.0" y="60.5" width="414" height="50.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eup-UZ-lB2">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9N-Gg-1b7">
+                                                        <rect key="frame" x="0.0" y="0.0" width="202" height="30"/>
+                                                        <state key="normal" title="Categories:"/>
+                                                        <connections>
+                                                            <action selector="onCategoriesButtonPressed:" destination="09f-Bl-XE1" eventType="touchUpInside" id="ixP-SX-7Ak"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGe-np-PHA">
+                                                        <rect key="frame" x="212" y="0.0" width="202" height="30"/>
+                                                        <state key="normal" title="Reflections:"/>
+                                                        <connections>
+                                                            <action selector="onReflectionsButtonPressed:" destination="09f-Bl-XE1" eventType="touchUpInside" id="yFT-Kl-Ska"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dHv-EN-AP4">
+                                                <rect key="frame" x="0.0" y="30" width="414" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsu-fJ-JbI" userLabel="Reflection Count">
+                                                        <rect key="frame" x="0.0" y="0.0" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZhH-5Y-oNR" userLabel="Experience Count">
+                                                        <rect key="frame" x="207" y="0.0" width="207" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="O5W-Yc-SAa" firstAttribute="trailing" secondItem="zn2-gs-Imf" secondAttribute="trailing" id="VSQ-9K-aYk"/>
+                            <constraint firstItem="zn2-gs-Imf" firstAttribute="top" secondItem="O5W-Yc-SAa" secondAttribute="top" constant="40" id="bEP-jd-SMR"/>
+                            <constraint firstItem="zn2-gs-Imf" firstAttribute="leading" secondItem="O5W-Yc-SAa" secondAttribute="leading" id="ulI-f1-QtM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O5W-Yc-SAa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="miH-ey-GrJ">
+                        <barButtonItem key="leftBarButtonItem" title="Home Page" style="done" id="oHS-y6-yPi">
+                            <connections>
+                                <action selector="onGoBackButtonPressed:" destination="09f-Bl-XE1" id="SrK-ki-pwJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" style="plain" id="AqC-sO-D6x">
+                            <connections>
+                                <action selector="onSignOutButtonPressed:" destination="09f-Bl-XE1" id="dTZ-TI-TBJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoriesCountLabel" destination="dsu-fJ-JbI" id="U9C-aR-TUs"/>
+                        <outlet property="reflectionsCountLabel" destination="ZhH-5Y-oNR" id="4J2-et-Y3a"/>
+                        <outlet property="userEmailLabel" destination="cd1-8z-7Id" id="0bD-cd-GGx"/>
+                        <segue destination="RNh-hY-brB" kind="show" identifier="LogoutSegue" id="1dv-hU-e7v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Re7-eX-XlO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="412" y="-304"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="UAm-lK-t2d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="RNh-hY-brB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lD7-VT-eCb"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aeE-Re-CVb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="-304"/>
+        </scene>
+    </scenes>
+</document>

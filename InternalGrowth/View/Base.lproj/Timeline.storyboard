@@ -1,88 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7bp-Yb-zKA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aWx-lU-hqf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Timeline View Controller-->
-        <scene sceneID="xWk-ON-qAV">
+        <!--Experiences-->
+        <scene sceneID="zbq-Fz-h44">
             <objects>
-                <viewController storyboardIdentifier="ReflectionTimeline" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7bp-Yb-zKA" customClass="TimelineViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="fhH-Y1-gxR">
+                <tableViewController storyboardIdentifier="Experiences" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zik-SN-QaX" customClass="ExperiencesViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="t5L-RB-7Iw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IGz-6r-w1P">
-                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7I-Xu-yyT">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Your Growth Timeline">
-                                                <attributes>
-                                                    <font key="NSFont" size="17" name="Optima-BoldItalic"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lWP-ML-Eji">
-                                        <rect key="frame" x="0.0" y="30.5" width="414" height="737.5"/>
-                                        <subviews>
-                                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="49z-A8-QlA">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </searchBar>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MuA-tb-KvZ">
-                                                <rect key="frame" x="0.0" y="56" width="414" height="681.5"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReflectionEntry" id="X90-Pf-KMY">
-                                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="X90-Pf-KMY" id="KJV-aj-XU8">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </tableViewCellContentView>
-                                                        <connections>
-                                                            <segue destination="Q0h-En-0O6" kind="show" identifier="tableToDetailSegue" id="c0j-v6-z8I"/>
-                                                        </connections>
-                                                    </tableViewCell>
-                                                </prototypes>
-                                            </tableView>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="m9u-e2-wbO">
-                                        <rect key="frame" x="0.0" y="778" width="414" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Return to Main Page"/>
-                                        <connections>
-                                            <action selector="onReturnButtonPressed:" destination="7bp-Yb-zKA" eventType="touchUpInside" id="qqB-HY-R48"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.37731835864798408" green="0.81712709860984445" blue="0.58806068728164507" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="IGz-6r-w1P" firstAttribute="leading" secondItem="d8a-gf-pwd" secondAttribute="leading" id="BzY-A3-eZR"/>
-                            <constraint firstItem="d8a-gf-pwd" firstAttribute="trailing" secondItem="IGz-6r-w1P" secondAttribute="trailing" id="OQm-pH-Chf"/>
-                            <constraint firstItem="IGz-6r-w1P" firstAttribute="top" secondItem="d8a-gf-pwd" secondAttribute="top" constant="10" id="wAg-do-qK3"/>
-                            <constraint firstItem="d8a-gf-pwd" firstAttribute="bottom" secondItem="IGz-6r-w1P" secondAttribute="bottom" constant="10" id="wSc-lX-llM"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="d8a-gf-pwd"/>
-                    </view>
+                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Experiences" id="JCc-55-0O6">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="experienceLabel" id="MBM-LD-flK">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MBM-LD-flK" id="Lx0-uh-rf9">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zik-SN-QaX" id="7ZZ-LD-NMi"/>
+                            <outlet property="delegate" destination="Zik-SN-QaX" id="Axx-RW-8AD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Experiences" id="vfo-95-6Rm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="ugE-YD-Kvg">
+                            <connections>
+                                <action selector="onDoneButtonPressed:" destination="Zik-SN-QaX" id="8YU-Ox-itv"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="A5C-Oa-L5G">
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="Zik-SN-QaX" id="otg-2Q-gkF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="info.circle" catalog="system" id="lX4-Le-vJ9">
+                                <connections>
+                                    <action selector="onInfoButtonPressed:" destination="Zik-SN-QaX" id="zJ7-jo-Clz"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="MuA-tb-KvZ" id="ECc-Ef-feW"/>
+                        <outlet property="addButton" destination="A5C-Oa-L5G" id="eQa-Le-H53"/>
+                        <outlet property="experiencesSearchBar" destination="JCc-55-0O6" id="qE1-ck-1Lu"/>
+                        <outlet property="infoButton" destination="lX4-Le-vJ9" id="XT6-ZD-x7J"/>
+                        <segue destination="IfT-Zm-2H9" kind="show" identifier="goToItems" id="4iw-wC-mJm"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="axy-71-vbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Al5-ox-afD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-146" y="-535"/>
+            <point key="canvasLocation" x="-588" y="-488"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vZb-eA-sXW">
+            <objects>
+                <navigationController storyboardIdentifier="TimelineNavigation" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aWx-lU-hqf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sxb-oB-yaQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Zik-SN-QaX" kind="relationship" relationship="rootViewController" id="YRg-3O-FX2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cO4-bB-2xG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1506" y="-488"/>
+        </scene>
+        <!--Reflection Timeline-->
+        <scene sceneID="gGh-8z-kIx">
+            <objects>
+                <tableViewController storyboardIdentifier="ReflectionTimeline" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IfT-Zm-2H9" customClass="TimelineViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="npj-0X-fUB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Search Reflections" id="fTk-XW-eAY">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReflectionEntry" id="FwF-Rf-Z4l">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FwF-Rf-Z4l" id="TXO-hZ-Cod">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IfT-Zm-2H9" id="p7c-Ox-J8P"/>
+                            <outlet property="delegate" destination="IfT-Zm-2H9" id="ptS-om-ocb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Reflection Timeline" id="w4u-wJ-6gx">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="xdu-XS-Q3b"/>
+                            <barButtonItem systemItem="edit" id="0GF-t1-FKH"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="reflectionSearchBar" destination="fTk-XW-eAY" id="WL7-mA-0dL"/>
+                        <segue destination="Q0h-En-0O6" kind="show" identifier="tableToDetailSegue" id="9zZ-22-iDF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Scm-Gu-1Z5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286" y="-488"/>
         </scene>
         <!--PastReflection-->
         <scene sceneID="yT0-Qm-5VN">
@@ -92,7 +131,10 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHh-HC-A87" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="430" y="-535"/>
+            <point key="canvasLocation" x="885" y="-488"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

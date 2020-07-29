@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
 
@@ -17,38 +18,131 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var audioButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
+    @IBOutlet weak var dayRatingSlider: UISlider!
+    @IBOutlet weak var sentimentLabel: UILabel!
+    @IBOutlet weak var reflectionTextView: UITextView!
+    @IBOutlet weak var promptTextField: UITextField!
+    @IBOutlet weak var keywordTextField: UITextField!
+    @IBOutlet weak var targetExperienceLabel: UILabel!
+    @IBOutlet weak var chooseExperienceButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var growButton: UIButton!
     
     // Recording variables
     var audioRecordingSession : AVAudioSession!
     var audioRecorder : AVAudioRecorder!
     
+    /// This allows CoreData to have a defined context to operate upon when using the four main functions:
+    /// Create, Retrieve, Update, Delete (CRUD).
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    // String to rename Experience button
+    var newTargetExperience : String = ""
+
     // MARK: - View Functions
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+        self.updateSentimentLabel()
+        if let targetExperience = targetExperience {
+            chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
+        }
+        else
+        {
+            chooseExperienceButton.setTitle("Choose Experience", for: .normal)
+        }
     }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
-        promptInspirationButton.layer.cornerRadius = promptInspirationButton.frame.size.height/2;
+        promptInspirationButton.layer.cornerRadius = promptInspirationButton.frame.size.height/2
+        chooseExperienceButton.layer.cornerRadius = chooseExperienceButton.frame.size.height/2
+        cancelButton.layer.cornerRadius = cancelButton.frame.size.height/2
+        growButton.layer.cornerRadius = growButton.frame.size.height/2
+        print(targetExperience?.name)
+        print(targetExperienceString)
+        if let targetExperience = targetExperience {
+            chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
+        }
+        else
+        {
+            chooseExperienceButton.setTitle("Choose Experience", for: .normal)
+        }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if targetExperience != nil {
+            chooseExperienceButton.setTitle(targetExperienceString, for: .normal)
+        }
+        else
+        {
+            chooseExperienceButton.setTitle("Choose Experience", for: .normal)
+        }
     }
-    */
+    
+    override func viewDidLayoutSubviews() {
+        if let targetExperience = targetExperience {
+            chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
+        }
+        else
+        {
+            chooseExperienceButton.setTitle("Choose Experience", for: .normal)
+        }
+    }
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        if (segue.identifier == "chooseExperienceSegueFromFullReflection")
+//        {
+//            let experienceVC = ExperiencesViewController()
+//            experienceVC.delegate = self
+//            present(experienceVC, animated: true)
+//        }
+//        // Pass the selected object to the new view controller.
+//    }
+
     
     // MARK: - IBActions
     @IBAction func onCancelButtonPressed(_ sender: Any) {
         _ = self.dismiss(animated: true, completion: nil)
     }
     
+    // Works with CoreData to save locally
     @IBAction func onGrowButtonPressed(_ sender: Any) {
-        _ = self.dismiss(animated: true, completion: nil)
+        let item = ReflectionEntry(context: self.context)
+        print("Grow button pressed")
+        print("Selected Exprience: ", targetExperience!)
+        if let targetExperience = targetExperience {
+            if let prompt = promptTextField.text {
+                item.prompt = prompt
+            }
+            if let reflection = reflectionTextView.text {
+                item.textReflection = reflection
+            }
+            if let keyword = keywordTextField.text {
+                item.keyword = keyword
+            }
+            formatter.timeStyle = .short
+            formatter.dateStyle = .short
+            let dateSaved = formatter.string(from: Date())
+            item.date = dateSaved
+            let moodLevel = dayRatingSlider.value
+            item.sentimentLevel = moodLevel
+            item.parentExperience = targetExperience
+            item.userReflectionParent = currentUser
+            targetExperience.parentUser = currentUser
+            itemArray.append(item)
+            saveItems()
+            _ = self.dismiss(animated: true, completion: nil)
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Incomplete Entry", message: "Please ensure you have a keyword and selected experience to add this reflection to. This helps us help you grow the right tree!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     @IBAction func onAudioButtonPressed(_ sender: Any) {
         if audioRecorder == nil {
@@ -77,6 +171,66 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         } else {
             finishRecording(success: true)
         }
+    }
+    
+    @IBAction func onChooseExperienceButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "chooseExperienceSegueFromFullReflection", sender: self)
+        choosingExperience = true
+    }
+    
+    @IBAction func onDayRatingSliderChanged(_ sender: Any) {
+        let level = dayRatingSlider.value
+        updateSentimentLabel(with: level)
+    }
+    
+    // MARK: - CoreData functions
+    
+    func saveItems() {
+        
+        do {
+          try context.save()
+        } catch {
+           print("Error saving context in Full Reflection, with debug error: \(error)")
+        }
+        
+        // self.tableView.reloadData()
+    }
+    
+    // MARK: - UI Functions
+    func updateSentimentLabel(with level: Float = 0)
+    {
+        if level > 80
+        {
+            self.sentimentLabel.text = "😇"
+        }
+        else if level > 40
+        {
+            self.sentimentLabel.text = "😀"
+        }
+        else if level > 10
+        {
+            self.sentimentLabel.text = "🙃"
+        }
+        else if level > -10
+        {
+            self.sentimentLabel.text = "🤨"
+        }
+        else if level > -40
+        {
+            self.sentimentLabel.text = "😕"
+        }
+        else if level > -80
+        {
+            self.sentimentLabel.text = "🥴"
+        }
+        else
+        {
+            self.sentimentLabel.text = "🤬"
+        }
+    }
+    
+    func updateUI() {
+        chooseExperienceButton.setTitle(newTargetExperience, for: .normal)
     }
     
     // MARK: - Text Helper Functions

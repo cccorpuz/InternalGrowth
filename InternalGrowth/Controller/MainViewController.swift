@@ -24,7 +24,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     var timer2 = Timer()                // Timer to move buttons across screen
     var timer3 = Timer()                // Timer to move buttons across screen
     
-    // Main page views
+    // MARK: - IBActions
     @IBOutlet weak var QuickPrompt1Button : UIButton!
     @IBOutlet weak var QuickPrompt2Button : UIButton!
     @IBOutlet weak var QuickPrompt3Button : UIButton!
@@ -47,15 +47,18 @@ class MainViewController: UIViewController, FloatyDelegate {
     
     // MARK: - View functions
     override func viewDidLoad() {
-      super.viewDidLoad()
+        super.viewDidLoad()
       
-      generateFloatingButton()
+        generateFloatingButton()
         
         // Find the button's width and height
         buttonWidth = QuickPrompt1Button.frame.width
+        print(buttonWidth)
 
         // Find the width and height of the enclosing view
         viewWidth = QuickPrompt1Button.superview!.bounds.width
+        print(viewWidth)
+        
         
         timer1 = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(timerAction1), userInfo: self, repeats: true)
         
@@ -68,8 +71,6 @@ class MainViewController: UIViewController, FloatyDelegate {
                 
         // Background color setting
         createGradientLayer()
-        
-
         
         // To give buttons rounded corners:
         QuickPrompt1Button.layer.cornerRadius = 30;
@@ -181,12 +182,29 @@ class MainViewController: UIViewController, FloatyDelegate {
         goToLibrary.title = "Reflection Timeline"
         goToLibrary.handler = {item in
             let storyBoard : UIStoryboard = UIStoryboard(name: "Timeline", bundle: nil)
-            let reflectionTimelineViewController = storyBoard.instantiateViewController(withIdentifier: "ReflectionTimeline")
+            let reflectionTimelineViewController = storyBoard.instantiateViewController(withIdentifier: "TimelineNavigation")
             reflectionTimelineViewController.modalPresentationStyle = .fullScreen
             self.present(reflectionTimelineViewController, animated: true, completion: nil)
         }
         floaty.addItem(item: goToLibrary)
         
+        // Go to profile page
+        let profile = FloatyItem()
+        profile.hasShadow = true
+        profile.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        profile.circleShadowColor = UIColor.gray
+        profile.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        profile.titleLabelPosition = .left
+        profile.title = "Profile"
+        profile.handler = { item in
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Profile", bundle: nil)
+            let profileViewController = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigation")
+            profileViewController.modalPresentationStyle = .fullScreen
+            self.present(profileViewController, animated: true, completion: nil)
+        }
+        floaty.addItem(item: profile)
+        
+        // Big plus button has a shadow
         floaty.hasShadow = true
 
         // padding at bottom right of screen
@@ -197,6 +215,7 @@ class MainViewController: UIViewController, FloatyDelegate {
       
     }
     
+    //MARK: - Timers for button clouds
     @objc func timerAction1() {
         if QuickPrompt1Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt1Button.center.x = CGFloat.init() - buttonWidth / 2
@@ -240,6 +259,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     func floatyDidClose(_ floaty: Floaty) {
       print("Floaty Did Close")
     }
-
 }
+
+
 
