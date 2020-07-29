@@ -38,6 +38,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z26-i7-9dc">
                                                 <rect key="frame" x="276" y="0.0" width="138" height="22"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onVideoButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="8AS-oS-w21"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -118,23 +121,12 @@
                         <outlet property="keywordTextField" destination="RrF-bc-073" id="AAs-op-QXP"/>
                         <outlet property="promptLabel" destination="ouM-Vy-puv" id="Oqf-FG-Gtu"/>
                         <outlet property="reflectionTextView" destination="teF-6s-zjI" id="bX6-9s-1X1"/>
-                        <segue destination="O48-Bf-ilj" kind="show" id="hRF-tA-Zs1"/>
                         <segue destination="4gH-Ha-1wA" kind="modal" identifier="chooseExperienceSegueFromQuickReflection" id="SNo-9P-WL0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-Fn-zDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-417" y="-502"/>
-        </scene>
-        <!--Video-->
-        <scene sceneID="57g-87-mdv">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Video" id="O48-Bf-ilj" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="jRa-Kj-qov"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GHF-3o-lQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="250" y="-553"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="YgZ-xe-HBG">

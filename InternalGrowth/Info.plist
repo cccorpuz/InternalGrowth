@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Internal Growth would like to save to your Photo Library</string>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>Access to your Music Library to optionally use music when editing reflections</string>
 	<key>CFBundleName</key>

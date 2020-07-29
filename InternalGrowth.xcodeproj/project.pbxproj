@@ -116,15 +116,12 @@
 			children = (
 				6CEA923E24BE419900C9AA92 /* LaunchScreen.storyboard */,
 				4F5BED9B24CFFBD0003E4127 /* Video.storyboard */,
-				6CB00C1424CA2CCD00B3BAD6 /* Profile.storyboard */,
 				6CEA923924BE419800C9AA92 /* Main.storyboard */,
 				6CFAFBC824C4C94700E23232 /* FullReflection.storyboard */,
 				6CEE249624C25D62000C75D1 /* QuickReflection.storyboard */,
 				6C4BE87124C01A9A00E31AF0 /* Timeline.storyboard */,
 				6CFAFBCC24C4D99E00E23232 /* PastReflection.storyboard */,
 				6CB00C1424CA2CCD00B3BAD6 /* Profile.storyboard */,
-				4FA9EAF024CA094700010A7F /* Record.storyboard */,
-				4F3CA92B24CA29DE002A718A /* VideoPlayback.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -145,9 +142,7 @@
 				6CEA923724BE419800C9AA92 /* TimelineViewController.swift */,
 				6CFAFBCE24C4D9AC00E23232 /* PastReflectionViewController.swift */,
 				6CB00C1624CA2EE800B3BAD6 /* ProfileViewController.swift */,
-				4F3CA92D24CA2A10002A718A /* VideoPlaybackViewController.swift */,
 				6CFAFBD624C4F52B00E23232 /* ReflectionCells.swift */,
-				4FA9EAF224CA0BAE00010A7F /* RecordViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -282,8 +277,6 @@
 				6CFAFBCD24C4D99E00E23232 /* PastReflection.storyboard in Resources */,
 				6CEE249724C25D62000C75D1 /* QuickReflection.storyboard in Resources */,
 				6CEA923B24BE419800C9AA92 /* Main.storyboard in Resources */,
-				4F3CA92C24CA29DE002A718A /* VideoPlayback.storyboard in Resources */,
-				4FA9EAF124CA094700010A7F /* Record.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,7 +512,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.unomaha-ccorpuz.InternalGrowth";
 				PRODUCT_NAME = "Internal Growth";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -538,7 +531,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "edu.unomaha-ccorpuz.InternalGrowth";
 				PRODUCT_NAME = "Internal Growth";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuickReflectionViewController: UIViewController {
+class QuickReflectionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 
     // MARK: - Global Variables
@@ -72,22 +72,33 @@ class QuickReflectionViewController: UIViewController {
     }
 
     // MARK: - IBAction functions
+    
+    @IBAction func onVideoButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Visual Reflection", message: "Select a source for this reflection:", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Your Videos", style: .default, handler: { (action) in
+            VideoHelper.startMediaBrowser(delegate: self, sourceType: .savedPhotosAlbum)
+        }))
+        alert.addAction(UIAlertAction(title: "New Video Reflection", style: .default, handler: { (action) in
+            VideoHelper.startMediaBrowser(delegate: self, sourceType: .camera)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func onCancelButtonPressed(_ sender: Any) {
         _ = self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onGrowButtonPressed(_ sender: Any) {
         let item = ReflectionEntry(context: self.context)
-        if let targetExperience = targetExperience {
+        if let targetExperience = targetExperience, let keyword = keywordTextField.text {
             if let title = promptLabel.text {
                 item.prompt = title
             }
             if let reflection = reflectionTextView.text {
                 item.textReflection = reflection
             }
-            if let keyword = keywordTextField.text {
-                item.keyword = keyword
-            }
+            item.keyword = keyword
             formatter.timeStyle = .short
             formatter.dateStyle = .short
             let dateSaved = formatter.string(from: Date())

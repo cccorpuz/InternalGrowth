@@ -97,7 +97,7 @@
                                                 <rect key="frame" x="276" y="0.0" width="138" height="22"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="sTB-BD-W4E" kind="show" id="PTq-VE-pJN"/>
+                                                    <action selector="onVideoButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="WcC-zO-LR2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -199,16 +199,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTM-7P-jpZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-917" y="-595"/>
-        </scene>
-        <!--Video-->
-        <scene sceneID="sf0-fX-kg9">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Video" id="sTB-BD-W4E" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="y9n-Dk-1re"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Kl1-7l-l0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-149" y="-615"/>
         </scene>
         <!--Timeline-->
         <scene sceneID="WTB-pu-pad">
