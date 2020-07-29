@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TSS-EF-3jw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,7 +10,7 @@
         <!--Video Options View Controller-->
         <scene sceneID="eJs-qk-aoA">
             <objects>
-                <viewController id="TSS-EF-3jw" customClass="VideoOptionsViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TSS-EF-3jw" customClass="VideoOptionsViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PvB-dX-rsl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -63,7 +63,7 @@
         <!--Play Video View Controller-->
         <scene sceneID="sCS-FQ-R4r">
             <objects>
-                <viewController id="gxd-IM-4kq" customClass="PlayVideoViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gxd-IM-4kq" customClass="PlayVideoViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="okJ-de-fIi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
         <!--Record Video View Controller-->
         <scene sceneID="ZFT-UE-wcD">
             <objects>
-                <viewController id="TMS-VU-PSn" customClass="RecordVideoViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TMS-VU-PSn" customClass="RecordVideoViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhs-Bl-aSf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

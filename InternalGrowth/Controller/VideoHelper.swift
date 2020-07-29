@@ -9,10 +9,11 @@
 import Foundation
 import MobileCoreServices
 import AVFoundation
+import UIKit
 
-class VideoHelper {
+class VideoHelper: UIViewController, UIImagePickerControllerDelegate {
   
-  static func startMediaBrowser(delegate: UIViewController & UINavigationControllerDelegate & UIImagePickerControllerDelegate, sourceType: UIImagePickerControllerSourceType) {
+    static func startMediaBrowser(delegate: UIViewController & UINavigationControllerDelegate & UIImagePickerControllerDelegate, sourceType: UIImagePickerController.SourceType) {
     guard UIImagePickerController.isSourceTypeAvailable(sourceType) else { return }
     
     let mediaUI = UIImagePickerController()

@@ -24,7 +24,7 @@ class EditVideoViewController: UIViewController {
     var audioAsset: AVAsset?
     var loadingAssetOne = false
     
-      @IBOutlet var activityMonitor: UIActivityIndicatorView!
+    @IBOutlet var activityMonitor: UIActivityIndicatorView!
       
       func savedPhotosAvailable() -> Bool {
         guard !UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) else { return true }
@@ -181,9 +181,9 @@ class EditVideoViewController: UIViewController {
         saveVideoToPhotos()
       }
     }
-      
-    }
+}
 
+// MARK: - Extensions to edit video
     extension EditVideoViewController: UIImagePickerControllerDelegate {
       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true, completion: nil)
@@ -247,5 +247,3 @@ class EditVideoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}
