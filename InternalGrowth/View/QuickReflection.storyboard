@@ -10,7 +10,7 @@
         <!--Quick Reflection View Controller-->
         <scene sceneID="cYA-ff-RHl">
             <objects>
-                <viewController id="gFN-xy-X7r" customClass="QuickReflectionViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gFN-xy-X7r" customClass="QuickReflectionViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qWn-z6-e54">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -119,7 +119,7 @@
                         <outlet property="promptLabel" destination="ouM-Vy-puv" id="Oqf-FG-Gtu"/>
                         <outlet property="reflectionTextView" destination="teF-6s-zjI" id="bX6-9s-1X1"/>
                         <segue destination="O48-Bf-ilj" kind="show" id="hRF-tA-Zs1"/>
-                        <segue destination="4gH-Ha-1wA" kind="show" identifier="chooseExperienceSegueFromQuickReflection" id="SNo-9P-WL0"/>
+                        <segue destination="4gH-Ha-1wA" kind="modal" identifier="chooseExperienceSegueFromQuickReflection" id="SNo-9P-WL0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6B-Fn-zDR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
