@@ -126,10 +126,10 @@
             </objects>
             <point key="canvasLocation" x="-417" y="-502"/>
         </scene>
-        <!--Record-->
+        <!--Video-->
         <scene sceneID="57g-87-mdv">
             <objects>
-                <viewControllerPlaceholder storyboardName="Record" id="O48-Bf-ilj" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Video" id="O48-Bf-ilj" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="jRa-Kj-qov"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHF-3o-lQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

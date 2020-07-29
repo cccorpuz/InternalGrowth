@@ -1,14 +1,14 @@
 //
-//  VideoPlaybackViewController.swift
+//  VideoOptionsViewController.swift
 //  InternalGrowth
 //
-//  Created by Claire Schweikert on 7/23/20.
+//  Created by Claire Schweikert on 7/28/20.
 //  Copyright © 2020 Crispin Corpuz. All rights reserved.
 //
 
 import UIKit
 
-class VideoPlaybackViewController: UIViewController {
+class VideoOptionsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
