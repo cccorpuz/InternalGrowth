@@ -87,14 +87,18 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         selector: #selector(FullReflectionViewController.playerDidReachEndNotificationHandler(_:)),
         name: NSNotification.Name(rawValue: "AVPlayerItemDidPlayToEndTimeNotification"),
         object: player?.currentItem)
-        
+        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
+        playVideoButton.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         promptInspirationButton.layer.cornerRadius = promptInspirationButton.frame.size.height/2
         chooseExperienceButton.layer.cornerRadius = chooseExperienceButton.frame.size.height/2
         cancelButton.layer.cornerRadius = cancelButton.frame.size.height/2
         growButton.layer.cornerRadius = growButton.frame.size.height/2
+        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
+        playVideoButton.clipsToBounds = true
         reflectionFrame = reflectionTextView.bounds
         assetIdentifier = nil
         if let targetExperience = targetExperience {
@@ -122,6 +126,11 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             reflectionTextView.isHidden = false
             reflectionTextView.text = ""
         }
+    }
+    
+    override func viewWillLayoutSubviews() {
+        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
+        playVideoButton.clipsToBounds = true
     }
 
     // MARK: - IBActions [top-down]
@@ -176,9 +185,11 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func onVideoButtonPressed(_ sender: Any) {
         reflectionMedia = "video"
+        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
+        playVideoButton.clipsToBounds = true
+        reflectionMediaVStackView.isHidden = false
         print(reflectionMedia!)
         reflectionTextView.isHidden = true
-        reflectionMediaVStackView.isHidden = false
         let alert = UIAlertController(title: "Visual Reflection", message: "Select a source for this reflection:", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Your Videos", style: .default, handler: { (action) in
             VideoHelper.startMediaBrowser(delegate: self, sourceType: .savedPhotosAlbum)
@@ -218,10 +229,6 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             if let prompt = promptTextField.text {
                 item.prompt = prompt
             }
-            if let reflection = reflectionTextView.text {
-                item.textReflection = reflection
-            }
-            
             item.keyword = keyword
             formatter.timeStyle = .short
             formatter.dateStyle = .short
@@ -230,6 +237,12 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             let moodLevel = dayRatingSlider.value
             item.sentimentLevel = moodLevel
             item.reflectionType = reflectionMedia
+            if let reflection = reflectionTextView.text {
+                item.textReflection = reflection
+            }
+            if let assetID = assetIdentifier {
+                item.videoReflectionAssetIdentifier = assetID
+            }
             item.parentExperience = targetExperience
             item.userReflectionParent = currentUser
             targetExperience.parentUser = currentUser
@@ -378,7 +391,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     func addPeriodicTimeObserver() {
         // Notify every half second
         let timeScale = CMTimeScale(NSEC_PER_SEC)
-        let time = CMTime(seconds: 0.01, preferredTimescale: timeScale)
+        let time = CMTime(seconds: 0.20, preferredTimescale: timeScale)
 
         timeObserverToken = player?
             .addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
@@ -409,8 +422,20 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     func updatePlayButtonTitle(isPlaying: Bool) {
         if isPlaying {
             playVideoButton.setTitle("Pause", for: .normal)
+            playVideoButton.backgroundColor = .systemRed
+            playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
+            playVideoButton.layer.shadowColor = UIColor.darkGray.cgColor
+            playVideoButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+            playVideoButton.layer.shadowOpacity = 1.0
+            playVideoButton.layer.masksToBounds = false
         } else {
             playVideoButton.setTitle("Play", for: .normal)
+            playVideoButton.backgroundColor = .systemBlue
+            playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
+            playVideoButton.layer.shadowColor = UIColor.darkGray.cgColor
+            playVideoButton.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+            playVideoButton.layer.shadowOpacity = 1.0
+            playVideoButton.layer.masksToBounds = false
         }
     }
 }

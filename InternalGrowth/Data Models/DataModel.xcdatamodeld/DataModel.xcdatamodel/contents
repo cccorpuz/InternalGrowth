@@ -12,7 +12,7 @@
         <attribute name="reflectionType" optional="YES" attributeType="String"/>
         <attribute name="sentimentLevel" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="textReflection" optional="YES" attributeType="String"/>
-        <attribute name="videoReflection" optional="YES" attributeType="String"/>
+        <attribute name="videoReflectionAssetIdentifier" optional="YES" attributeType="String"/>
         <relationship name="parentExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Experience" inverseName="reflections" inverseEntity="Experience"/>
         <relationship name="userReflectionParent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="userReflections" inverseEntity="User"/>
     </entity>

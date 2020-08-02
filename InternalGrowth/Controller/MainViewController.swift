@@ -77,15 +77,6 @@ class MainViewController: UIViewController, FloatyDelegate {
         QuickPrompt2Button.layer.cornerRadius = 30;
         QuickPrompt3Button.layer.cornerRadius = 30;
         
-        QuickPrompt1Button.setTitle(prompts.prompts[0], for: .normal)
-        QuickPrompt2Button.setTitle(prompts.prompts[1], for: .normal)
-        QuickPrompt3Button.setTitle(prompts.prompts[2], for: .normal)
-
-        // To give buttons rounded corners:
-        QuickPrompt1Button?.layer.cornerRadius = 30;
-        QuickPrompt2Button?.layer.cornerRadius = 30;
-        QuickPrompt3Button?.layer.cornerRadius = 30;
-        
         // Setting prompts
         QuickPrompt1Button?.setTitle(prompts.prompts[0], for: .normal)
         QuickPrompt2Button?.setTitle(prompts.prompts[1], for: .normal)
@@ -156,9 +147,9 @@ class MainViewController: UIViewController, FloatyDelegate {
         //      Will appear at bottom
         let newReflection = FloatyItem()
         newReflection.hasShadow = true
-        newReflection.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        newReflection.buttonColor = UIColor.init(red: CGFloat(205.0/255.0), green: CGFloat(224.0/255.0), blue: CGFloat(238.0/255.0), alpha: 1.0)
         newReflection.circleShadowColor = UIColor.gray
-        newReflection.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        newReflection.titleShadowColor = UIColor.init(red: CGFloat(205.0/255.0), green: CGFloat(224.0/255.0), blue: CGFloat(238.0/255.0), alpha: 1.0)
         newReflection.titleLabelPosition = .left
         newReflection.title = "Fully Reflect!"
         
@@ -175,9 +166,9 @@ class MainViewController: UIViewController, FloatyDelegate {
         //      Will appear above newReflection
         let goToLibrary = FloatyItem()
         goToLibrary.hasShadow = true
-        goToLibrary.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        goToLibrary.buttonColor = UIColor.init(red: CGFloat(205.0/255.0), green: CGFloat(224.0/255.0), blue: CGFloat(238.0/255.0), alpha: 1.0)
         goToLibrary.circleShadowColor = UIColor.gray
-        goToLibrary.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        goToLibrary.titleShadowColor = UIColor.init(red: CGFloat(205.0/255.0), green: CGFloat(224.0/255.0), blue: CGFloat(238.0/255.0), alpha: 1.0)
         goToLibrary.titleLabelPosition = .left
         goToLibrary.title = "Reflection Timeline"
         goToLibrary.handler = {item in
@@ -191,9 +182,9 @@ class MainViewController: UIViewController, FloatyDelegate {
         // Go to profile page
         let profile = FloatyItem()
         profile.hasShadow = true
-        profile.buttonColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        profile.buttonColor = UIColor.init(red: CGFloat(205.0/255.0), green: CGFloat(224.0/255.0), blue: CGFloat(238.0/255.0), alpha: 1.0)
         profile.circleShadowColor = UIColor.gray
-        profile.titleShadowColor = UIColor.init(red: CGFloat(146.0/255.0), green: CGFloat(133.0/255.0), blue: CGFloat(229.0/255.0), alpha: 1.0)
+        profile.titleShadowColor = UIColor.init(red: CGFloat(205.0/255.0), green: CGFloat(224.0/255.0), blue: CGFloat(238.0/255.0), alpha: 1.0)
         profile.titleLabelPosition = .left
         profile.title = "Profile"
         profile.handler = { item in

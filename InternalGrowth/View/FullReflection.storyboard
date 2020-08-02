@@ -16,15 +16,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XXR-UX-nZi">
-                                <rect key="frame" x="0.0" y="59" width="414" height="817"/>
+                                <rect key="frame" x="20" y="44" width="374" height="822"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dDp-P0-TbY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qwc-Yo-NIe">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="96"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHT-lz-RZO">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40.5"/>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="How are you feeling?">
+                                                    <fragment content="How are you feeling right now?">
                                                         <attributes>
                                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <font key="NSFont" size="17" name="Optima-BoldItalic"/>
@@ -34,59 +34,59 @@
                                                 </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="txy-q6-Fv1">
+                                                <rect key="frame" x="0.0" y="55.5" width="374" height="40.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs0-ew-ToC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="94" height="40.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-cN-VVS">
+                                                        <rect key="frame" x="112" y="0.0" width="264" height="41.5"/>
+                                                        <connections>
+                                                            <action selector="onDayRatingSliderChanged:" destination="RTE-Qk-U6D" eventType="valueChanged" id="E9Y-GV-6dV"/>
+                                                        </connections>
+                                                    </slider>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="qwc-Yo-NIe">
-                                        <rect key="frame" x="0.0" y="30.5" width="414" height="96"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs0-ew-ToC">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-cN-VVS">
-                                                <rect key="frame" x="-2" y="48" width="418" height="49"/>
-                                                <connections>
-                                                    <action selector="onDayRatingSliderChanged:" destination="RTE-Qk-U6D" eventType="valueChanged" id="E9Y-GV-6dV"/>
-                                                </connections>
-                                            </slider>
-                                        </subviews>
-                                    </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-Qy-wkS">
-                                        <rect key="frame" x="0.0" y="136.5" width="414" height="30"/>
-                                        <color key="backgroundColor" red="0.74555195347423453" green="0.57370233870246912" blue="0.78039215689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-Qy-wkS" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="374" height="30"/>
+                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Click me for prompt inspiration!">
-                                            <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="onPromptInspirationButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="ZfC-dP-PkQ"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What will you reflect on today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-hS-VLX">
-                                        <rect key="frame" x="0.0" y="176.5" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="146" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-nW-nBK">
-                                        <rect key="frame" x="0.0" y="220.5" width="414" height="22"/>
+                                        <rect key="frame" x="0.0" y="190" width="374" height="22"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-0e-jW5">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-0e-jW5" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="22"/>
                                                 <state key="normal" image="pencil" catalog="system"/>
                                                 <connections>
                                                     <action selector="onTextButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="39X-Xn-2Cn"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-ZN-xRI">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-ZN-xRI" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="124.5" y="0.0" width="125" height="22"/>
                                                 <state key="normal" image="mic.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="onAudioButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="g3Q-jP-VXR"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWn-LN-6fY">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWn-LN-6fY" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="22"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="onVideoButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="WcC-zO-LR2"/>
@@ -95,19 +95,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vff-jU-JCW">
-                                        <rect key="frame" x="0.0" y="252.5" width="414" height="410.5"/>
+                                        <rect key="frame" x="0.0" y="222" width="374" height="480"/>
                                         <subviews>
-                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-H8-dcS">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-H8-dcS">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="5"/>
                                                 <subviews>
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcl-j1-0Wt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                                                         <connections>
                                                             <segue destination="Z9e-NZ-2yb" kind="embed" id="IJo-Q6-O1O"/>
                                                         </connections>
                                                     </containerView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Wf-i1-U3z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="5" width="374" height="0.0"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0n-g3-gE8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="36" height="0.0"/>
@@ -115,24 +115,28 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cbl-gI-g9h">
-                                                                <rect key="frame" x="54" y="0.0" width="362" height="1"/>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cbl-gI-g9h" customClass="CustomSlider" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="54" y="0.0" width="242" height="1"/>
                                                             </slider>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryf-6v-o7W" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="314" y="0.0" width="60" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="a86-Tj-50H"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Play">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="onPlayButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="dEX-cK-Geb"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ryf-6v-o7W">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
-                                                        <state key="normal" title="Play">
-                                                            <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onPlayButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="dEX-cK-Geb"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q2x-LO-UYb">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="410.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="480"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -141,28 +145,27 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5JS-tp-BoQ">
-                                        <rect key="frame" x="0.0" y="673" width="414" height="34"/>
+                                        <rect key="frame" x="0.0" y="712" width="374" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reflection Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkj-n0-7kc">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="q6K-os-EEa"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aoK-Ca-B6K">
-                                        <rect key="frame" x="0.0" y="717" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="752" width="374" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflecting on:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7H-TD-wYM">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-h8-PVc">
-                                                <rect key="frame" x="0.0" y="30" width="414" height="30"/>
-                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Choose Experience"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-h8-PVc" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Choose Experience">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onChooseExperienceButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="VBW-Ri-kam"/>
                                                 </connections>
@@ -170,18 +173,18 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hHJ-np-bTs">
-                                        <rect key="frame" x="0.0" y="787" width="414" height="30"/>
+                                        <rect key="frame" x="0.0" y="792" width="374" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOl-Vt-b0i">
-                                                <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOl-Vt-b0i" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="30"/>
                                                 <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Cancel..."/>
                                                 <connections>
                                                     <action selector="onCancelButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="q8m-vF-dk5"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl4-fO-fmT">
-                                                <rect key="frame" x="217" y="0.0" width="197" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl4-fO-fmT" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="197" y="0.0" width="177" height="30"/>
                                                 <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Grow!"/>
                                                 <connections>
@@ -193,12 +196,12 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.69870442249999998" green="0.72277431319999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.50511821609999996" green="0.83217737079999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="XXR-UX-nZi" firstAttribute="leading" secondItem="48F-LB-bYS" secondAttribute="leading" id="FZa-li-2zn"/>
-                            <constraint firstItem="48F-LB-bYS" firstAttribute="trailing" secondItem="XXR-UX-nZi" secondAttribute="trailing" id="lBk-pu-vaX"/>
-                            <constraint firstItem="XXR-UX-nZi" firstAttribute="top" secondItem="48F-LB-bYS" secondAttribute="top" constant="15" id="uSu-1d-Miw"/>
-                            <constraint firstAttribute="bottom" secondItem="XXR-UX-nZi" secondAttribute="bottom" constant="20" id="vsV-xz-ceE"/>
+                            <constraint firstItem="XXR-UX-nZi" firstAttribute="leading" secondItem="48F-LB-bYS" secondAttribute="leading" constant="20" id="FZa-li-2zn"/>
+                            <constraint firstItem="48F-LB-bYS" firstAttribute="trailing" secondItem="XXR-UX-nZi" secondAttribute="trailing" constant="20" id="lBk-pu-vaX"/>
+                            <constraint firstItem="XXR-UX-nZi" firstAttribute="top" secondItem="48F-LB-bYS" secondAttribute="top" id="uSu-1d-Miw"/>
+                            <constraint firstAttribute="bottom" secondItem="XXR-UX-nZi" secondAttribute="bottom" constant="30" id="vsV-xz-ceE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="48F-LB-bYS"/>
                     </view>
@@ -219,7 +222,6 @@
                         <outlet property="reflectionStackView" destination="vff-jU-JCW" id="KLo-3N-07R"/>
                         <outlet property="reflectionTextView" destination="Q2x-LO-UYb" id="jdZ-C8-bKY"/>
                         <outlet property="sentimentLabel" destination="fs0-ew-ToC" id="IQu-jU-OEy"/>
-                        <outlet property="targetExperienceLabel" destination="X7H-TD-wYM" id="AdA-jV-UdP"/>
                         <outlet property="textButton" destination="gXs-0e-jW5" id="vTB-pt-Zj3"/>
                         <outlet property="videoButton" destination="eWn-LN-6fY" id="tlj-O2-otk"/>
                         <outlet property="videoProgressBar" destination="Cbl-gI-g9h" id="Pe1-T1-yQc"/>
@@ -246,7 +248,7 @@
             <objects>
                 <viewController id="Z9e-NZ-2yb" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EBK-pO-pHk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     </view>
