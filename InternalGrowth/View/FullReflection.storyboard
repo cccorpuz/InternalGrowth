@@ -59,6 +59,9 @@
                                         <state key="normal" title="Click me for prompt inspiration!">
                                             <color key="titleColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onPromptInspirationButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="ZfC-dP-PkQ"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What will you reflect on today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-hS-VLX">
                                         <rect key="frame" x="0.0" y="176.5" width="414" height="34"/>

@@ -124,13 +124,16 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         }
     }
 
-    // MARK: - IBActions
+    // MARK: - IBActions [top-down]
     
     @IBAction func onDayRatingSliderChanged(_ sender: Any) {
         let level = dayRatingSlider.value
         updateSentimentLabel(with: level)
     }
     
+    @IBAction func onPromptInspirationButtonPressed(_ sender: Any) {
+        
+    }
     @IBAction func onTextButtonPressed(_ sender: Any) {
         reflectionMedia = "text"
         reflectionMediaVStackView.isHidden = true
@@ -339,6 +342,76 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    } // end video()
+    
+    @objc func playerDidReachEndNotificationHandler(_ notification: Notification) {
+        // 1
+        guard let playerItem = notification.object as? AVPlayerItem else { return }
+
+        // 2
+        playerItem.seek(to: .zero, completionHandler: nil)
+
+        // 3
+        if player?.actionAtItemEnd == .pause {
+            player?.pause()
+            updatePlayButtonTitle(isPlaying: false)
+            videoProgressBar.value = 0
+        }
+    } // end playerDidReachEndNotificationHandler()
+    
+    @objc func playbackSliderValueChanged(_ playbackSlider:UISlider)
+    {
+        
+        let seconds : Double = Double(playbackSlider.value)
+        let targetTime : CMTime = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+
+        player!.seek(to: targetTime)
+        
+        if player!.rate == 0
+        {
+            player?.play()
+            playVideoButton.setTitle("Pause", for: .normal)
+        }
+    } // end playbackSliderValueChanged
+    
+    // MARK: Update video accessories
+    func addPeriodicTimeObserver() {
+        // Notify every half second
+        let timeScale = CMTimeScale(NSEC_PER_SEC)
+        let time = CMTime(seconds: 0.01, preferredTimescale: timeScale)
+
+        timeObserverToken = player?
+            .addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
+            // update player transport UI
+                let timeProgress = Float(CMTimeGetSeconds(time))
+                self?.videoProgressBar.value = timeProgress
+                var hours : Int { Int(timeProgress / 3600) }
+                var minutes : Int { Int(timeProgress.truncatingRemainder(dividingBy: 3600) / 60) }
+                var seconds : Int { Int(timeProgress.truncatingRemainder(dividingBy: 60)) }
+                var positionalTime : String {
+                    return hours > 0 ?
+                        String(format: "%d:%02d:%02d",
+                    hours, minutes, seconds) :
+                        String(format: "%02d:%02d",
+                    minutes, seconds)
+                }
+                    self?.videoTimeLabel.text = positionalTime
+        }
+    } // end addPeriodicTimeObserver()
+
+    func removePeriodicTimeObserver() {
+        if let timeObserverToken = timeObserverToken {
+            player?.removeTimeObserver(timeObserverToken)
+            self.timeObserverToken = nil
+        }
+    } // end removePeriodicTimeObserver()
+    
+    func updatePlayButtonTitle(isPlaying: Bool) {
+        if isPlaying {
+            playVideoButton.setTitle("Pause", for: .normal)
+        } else {
+            playVideoButton.setTitle("Play", for: .normal)
+        }
     }
 }
 
@@ -451,73 +524,4 @@ extension FullReflectionViewController {
             }
         }
     } // end loadVideo()
-    
-    @objc func playerDidReachEndNotificationHandler(_ notification: Notification) {
-        // 1
-        guard let playerItem = notification.object as? AVPlayerItem else { return }
-
-        // 2
-        playerItem.seek(to: .zero, completionHandler: nil)
-
-        // 3
-        if player?.actionAtItemEnd == .pause {
-            player?.pause()
-            updatePlayButtonTitle(isPlaying: false)
-            videoProgressBar.value = 0
-        }
-    } // end playerDidReachEndNotificationHandler()
-    
-    func updatePlayButtonTitle(isPlaying: Bool) {
-        if isPlaying {
-            playVideoButton.setTitle("Pause", for: .normal)
-        } else {
-            playVideoButton.setTitle("Play", for: .normal)
-        }
-    }
-    
-    @objc func playbackSliderValueChanged(_ playbackSlider:UISlider)
-    {
-        
-        let seconds : Double = Double(playbackSlider.value)
-        let targetTime : CMTime = CMTime(seconds: seconds, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-
-        player!.seek(to: targetTime)
-        
-        if player!.rate == 0
-        {
-            player?.play()
-            playVideoButton.setTitle("Pause", for: .normal)
-        }
-    }
-    
-    func addPeriodicTimeObserver() {
-        // Notify every half second
-        let timeScale = CMTimeScale(NSEC_PER_SEC)
-        let time = CMTime(seconds: 0.01, preferredTimescale: timeScale)
-
-        timeObserverToken = player?
-            .addPeriodicTimeObserver(forInterval: time, queue: .main) { [weak self] time in
-            // update player transport UI
-                let timeProgress = Float(CMTimeGetSeconds(time))
-                self?.videoProgressBar.value = timeProgress
-                var hours : Int { Int(timeProgress / 3600) }
-                var minutes : Int { Int(timeProgress.truncatingRemainder(dividingBy: 3600) / 60) }
-                var seconds : Int { Int(timeProgress.truncatingRemainder(dividingBy: 60)) }
-                var positionalTime : String {
-                    return hours > 0 ?
-                        String(format: "%d:%02d:%02d",
-                    hours, minutes, seconds) :
-                        String(format: "%02d:%02d",
-                    minutes, seconds)
-                }
-                    self?.videoTimeLabel.text = positionalTime
-        }
-    }
-
-    func removePeriodicTimeObserver() {
-        if let timeObserverToken = timeObserverToken {
-            player?.removeTimeObserver(timeObserverToken)
-            self.timeObserverToken = nil
-        }
-    }
 }
