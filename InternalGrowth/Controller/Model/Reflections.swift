@@ -33,7 +33,8 @@ var itemArray : [ReflectionEntry] = [ReflectionEntry]()
 /// `selectedReflection` allows for the correct reflection stored locally to be displayed once the cell containing the relevant keyword is selected in the Timeline TableView.
 var selectedReflection : Int = 0
 var reflectionMedia : String?
-var videoURL : String?
+var videoURL : URL?
+var assetIdentifier : String?
 
 // Placeholder dates
 let formatter = DateFormatter()
