@@ -18,6 +18,7 @@ var reflectionFrame : CGRect?
 class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
 
     // MARK: - Global Variables
+    
     // IBOutlet connections
     @IBOutlet weak var promptInspirationButton: UIButton!
     @IBOutlet weak var videoButton: UIButton!
@@ -41,6 +42,13 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var playVideoButton: UIButton!
     @IBOutlet weak var videoTimeLabel: UILabel!
     
+    // Audio Outlets
+    @IBOutlet weak var audioStackView: UIStackView!
+    @IBOutlet weak var audioTimeLabel: UILabel!
+    @IBOutlet weak var audioProgressBar: CustomSlider!
+    @IBOutlet weak var playAudioButton: CustomButton!
+    @IBOutlet weak var recordAudioButton: CustomButton!
+    
     // Video variables
     var playerItem: AVPlayerItem?
     let playerLayer = AVPlayerLayer()
@@ -52,6 +60,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     // Recording variables
     var audioRecordingSession : AVAudioSession!
     var audioRecorder : AVAudioRecorder!
+    var audioPlayer : AVAudioPlayer!
     
     /// This allows CoreData to have a defined context to operate upon when using the four main functions:
     /// Create, Retrieve, Update, Delete (CRUD).
@@ -96,6 +105,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         cancelButton.layer.cornerRadius = cancelButton.frame.size.height/2
         growButton.layer.cornerRadius = growButton.frame.size.height/2
         reflectionFrame = reflectionTextView.bounds
+        audioStackView.frame = reflectionFrame!
         assetIdentifier = nil
         if let targetExperience = targetExperience {
             chooseExperienceButton.setTitle(targetExperience.name, for: .normal)
@@ -110,6 +120,8 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         case "audio":
             reflectionTextView.isHidden = true
             reflectionTextView.text = ""
+            audioStackView.isHidden = false
+            audioStackView.frame = reflectionFrame!
         case "video":
             reflectionTextView.isHidden = true
             reflectionTextView.text = ""
@@ -123,6 +135,10 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             reflectionTextView.text = ""
         }
         highlightReflectionButton()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        audioStackView.frame = reflectionFrame!
     }
 
     // MARK: - IBActions [top-down]
@@ -139,6 +155,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         reflectionMedia = "text"
         highlightReflectionButton()
         reflectionMediaVStackView.isHidden = true
+        audioStackView.isHidden = true
         print(reflectionMedia!)
         reflectionTextView.isHidden = false
     }
@@ -146,6 +163,8 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         reflectionMedia = "audio"
         highlightReflectionButton()
         reflectionMediaVStackView.isHidden = true
+        audioStackView.isHidden = false
+        audioStackView.frame = reflectionFrame!
         print(reflectionMedia!)
         reflectionTextView.isHidden = true
         reflectionTextView.text = ""
@@ -183,6 +202,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
         playVideoButton.clipsToBounds = true
         reflectionMediaVStackView.isHidden = false
+        audioStackView.isHidden = true
         print(reflectionMedia!)
         reflectionTextView.isHidden = true
         let alert = UIAlertController(title: "Visual Reflection", message: "Select a source for this reflection:", preferredStyle: .alert)

@@ -32,6 +32,9 @@ class QuickReflectionViewController: UIViewController, UINavigationControllerDel
     @IBOutlet weak var playVideoButton: UIButton!
     @IBOutlet weak var videoTimeLabel: UILabel!
     
+    // Audio Outlets
+    @IBOutlet weak var audioStackView: UIStackView!
+    
     // Video variables
     var playerItem: AVPlayerItem?
     let playerLayer = AVPlayerLayer()
@@ -90,13 +93,18 @@ class QuickReflectionViewController: UIViewController, UINavigationControllerDel
         switch reflectionMedia {
         case "text":
             reflectionTextView.isHidden = false
+            audioStackView.isHidden = true
+            reflectionMediaVStackView.isHidden = true
         case "audio":
             reflectionTextView.isHidden = true
+            audioStackView.isHidden = false
+            reflectionMediaVStackView.isHidden = true
             reflectionTextView.text = ""
         case "video":
             reflectionTextView.isHidden = true
             reflectionTextView.text = ""
             reflectionMediaContainerView.isHidden = false
+            audioStackView.isHidden = true
             getLatestAsset(for: .video)
             if let assetID = assetIdentifier {
                 loadAsset(identifier: assetID)
@@ -140,6 +148,7 @@ class QuickReflectionViewController: UIViewController, UINavigationControllerDel
         reflectionMedia = "text"
         highlightReflectionButton()
         reflectionMediaVStackView.isHidden = true
+        audioStackView.isHidden = true
         print(reflectionMedia!)
         reflectionTextView.isHidden = false
     }
@@ -148,6 +157,7 @@ class QuickReflectionViewController: UIViewController, UINavigationControllerDel
         reflectionMedia = "audio"
         highlightReflectionButton()
         reflectionMediaVStackView.isHidden = true
+        audioStackView.isHidden = false
         print(reflectionMedia!)
         reflectionTextView.isHidden = true
         reflectionTextView.text = ""
@@ -185,6 +195,7 @@ class QuickReflectionViewController: UIViewController, UINavigationControllerDel
         playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
         playVideoButton.clipsToBounds = true
         reflectionMediaVStackView.isHidden = false
+        audioStackView.isHidden = true
         print(reflectionMedia!)
         reflectionTextView.isHidden = true
         let alert = UIAlertController(title: "Visual Reflection", message: "Select a source for this reflection:", preferredStyle: .alert)

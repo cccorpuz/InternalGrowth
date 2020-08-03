@@ -4,8 +4,6 @@
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Internal Growth would like to save to your Photo Library</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Access to your Music Library to optionally use music when editing reflections</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -42,7 +40,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Record and save audio reflections when selected as a desired media. Stops recording after reflection is finished, as designated by the user.</string>
+	<string>Internal Growth would like to access your microphone for audio reflection</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -64,7 +62,7 @@
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera access required for video recording</string>
+	<string>Internal Growth would like to access your camera for video reflection</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>

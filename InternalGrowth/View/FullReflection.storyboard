@@ -19,10 +19,10 @@
                                 <rect key="frame" x="20" y="44" width="374" height="822"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qwc-Yo-NIe">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="96"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="111"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHT-lz-RZO">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="40.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="How are you feeling right now?">
                                                         <attributes>
@@ -35,16 +35,16 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="txy-q6-Fv1">
-                                                <rect key="frame" x="0.0" y="55.5" width="374" height="40.5"/>
+                                                <rect key="frame" x="0.0" y="63" width="374" height="48"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs0-ew-ToC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="94" height="40.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="94" height="48"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-100" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="qIH-cN-VVS">
-                                                        <rect key="frame" x="112" y="0.0" width="264" height="41.5"/>
+                                                        <rect key="frame" x="112" y="0.0" width="264" height="49"/>
                                                         <connections>
                                                             <action selector="onDayRatingSliderChanged:" destination="RTE-Qk-U6D" eventType="valueChanged" id="E9Y-GV-6dV"/>
                                                         </connections>
@@ -54,7 +54,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-Qy-wkS" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="106" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="121" width="374" height="30"/>
                                         <color key="backgroundColor" red="0.46930493818836649" green="0.78370220888878794" blue="0.94202628968253965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Click me for prompt inspiration!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,12 +64,12 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What will you reflect on today?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xkJ-hS-VLX">
-                                        <rect key="frame" x="0.0" y="146" width="374" height="34"/>
+                                        <rect key="frame" x="0.0" y="161" width="374" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-nW-nBK">
-                                        <rect key="frame" x="0.0" y="190" width="374" height="22"/>
+                                        <rect key="frame" x="0.0" y="205" width="374" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-0e-jW5" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="114.5" height="22"/>
@@ -98,7 +98,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vff-jU-JCW">
-                                        <rect key="frame" x="0.0" y="222" width="374" height="480"/>
+                                        <rect key="frame" x="0.0" y="237" width="374" height="465"/>
                                         <subviews>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-H8-dcS">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="5"/>
@@ -138,8 +138,58 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="p7S-nX-2wK" userLabel="Audio Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                <subviews>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xzg-q9-h57">
+                                                        <rect key="frame" x="0.0" y="20" width="374" height="0.0"/>
+                                                        <connections>
+                                                            <segue destination="PyL-JG-GGH" kind="embed" id="13Q-MA-UjT"/>
+                                                        </connections>
+                                                    </containerView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HV4-tb-83c">
+                                                        <rect key="frame" x="0.0" y="20" width="374" height="0.0"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0m-nG-8o2" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="177" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Play">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="onPlayButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="UNb-Pa-ce9"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6j-UF-gbm" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="197" y="0.0" width="177" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <state key="normal" title="Record">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="z98-GB-rAH">
+                                                        <rect key="frame" x="0.0" y="40" width="374" height="0.0"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcQ-NL-d60">
+                                                                <rect key="frame" x="0.0" y="0.0" width="36" height="0.0"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="e7e-TJ-bXP" customClass="CustomSlider" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="54" y="0.0" width="322" height="1"/>
+                                                            </slider>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtF-cq-qVh">
+                                                        <rect key="frame" x="0.0" y="60" width="374" height="0.0"/>
+                                                    </containerView>
+                                                </subviews>
+                                            </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Q2x-LO-UYb">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="480"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="465"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -216,14 +266,19 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="audioButton" destination="a0d-ZN-xRI" id="3eL-q3-w04"/>
+                        <outlet property="audioProgressBar" destination="e7e-TJ-bXP" id="dqy-id-K7F"/>
+                        <outlet property="audioStackView" destination="p7S-nX-2wK" id="EdR-yH-aYh"/>
+                        <outlet property="audioTimeLabel" destination="hcQ-NL-d60" id="eT6-Y2-1Mp"/>
                         <outlet property="cancelButton" destination="yOl-Vt-b0i" id="TbL-gS-T0V"/>
                         <outlet property="chooseExperienceButton" destination="dcX-h8-PVc" id="MqD-Jj-qzb"/>
                         <outlet property="dayRatingSlider" destination="qIH-cN-VVS" id="Kj7-hq-D46"/>
                         <outlet property="growButton" destination="Fl4-fO-fmT" id="KeU-J6-EWE"/>
                         <outlet property="keywordTextField" destination="mkj-n0-7kc" id="Euy-MR-PJc"/>
+                        <outlet property="playAudioButton" destination="s0m-nG-8o2" id="ibu-iC-jUb"/>
                         <outlet property="playVideoButton" destination="ryf-6v-o7W" id="lzy-xI-kgU"/>
                         <outlet property="promptInspirationButton" destination="fDA-Qy-wkS" id="1Q0-xl-uer"/>
                         <outlet property="promptTextField" destination="xkJ-hS-VLX" id="Caf-Jz-nWP"/>
+                        <outlet property="recordAudioButton" destination="S6j-UF-gbm" id="gCy-kL-6VX"/>
                         <outlet property="reflectionMediaContainerView" destination="gcl-j1-0Wt" id="JZR-n8-p2Y"/>
                         <outlet property="reflectionMediaVStackView" destination="mE9-H8-dcS" id="d8Q-AQ-iVU"/>
                         <outlet property="reflectionStackView" destination="vff-jU-JCW" id="KLo-3N-07R"/>
@@ -258,11 +313,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="luY-ky-3hr"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PcT-ur-auE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1586" y="-488"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yvJ-qG-fSN">
+            <objects>
+                <viewController id="PyL-JG-GGH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UY4-Vn-gBT">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Y9-dc-mLA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-377" y="-613"/>
         </scene>
     </scenes>
     <resources>
