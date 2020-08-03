@@ -87,8 +87,6 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         selector: #selector(FullReflectionViewController.playerDidReachEndNotificationHandler(_:)),
         name: NSNotification.Name(rawValue: "AVPlayerItemDidPlayToEndTimeNotification"),
         object: player?.currentItem)
-        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
-        playVideoButton.clipsToBounds = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -97,8 +95,6 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
         chooseExperienceButton.layer.cornerRadius = chooseExperienceButton.frame.size.height/2
         cancelButton.layer.cornerRadius = cancelButton.frame.size.height/2
         growButton.layer.cornerRadius = growButton.frame.size.height/2
-        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
-        playVideoButton.clipsToBounds = true
         reflectionFrame = reflectionTextView.bounds
         assetIdentifier = nil
         if let targetExperience = targetExperience {
@@ -126,11 +122,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             reflectionTextView.isHidden = false
             reflectionTextView.text = ""
         }
-    }
-    
-    override func viewWillLayoutSubviews() {
-        playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
-        playVideoButton.clipsToBounds = true
+        highlightReflectionButton()
     }
 
     // MARK: - IBActions [top-down]
@@ -145,12 +137,14 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     }
     @IBAction func onTextButtonPressed(_ sender: Any) {
         reflectionMedia = "text"
+        highlightReflectionButton()
         reflectionMediaVStackView.isHidden = true
         print(reflectionMedia!)
         reflectionTextView.isHidden = false
     }
     @IBAction func onAudioButtonPressed(_ sender: Any) {
         reflectionMedia = "audio"
+        highlightReflectionButton()
         reflectionMediaVStackView.isHidden = true
         print(reflectionMedia!)
         reflectionTextView.isHidden = true
@@ -185,6 +179,7 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
     
     @IBAction func onVideoButtonPressed(_ sender: Any) {
         reflectionMedia = "video"
+        highlightReflectionButton()
         playVideoButton.layer.cornerRadius = playVideoButton.frame.height/2
         playVideoButton.clipsToBounds = true
         reflectionMediaVStackView.isHidden = false
@@ -289,6 +284,27 @@ class FullReflectionViewController: UIViewController, AVAudioRecorderDelegate {
             self.sentimentLabel.text = "🥴"
         } else {
             self.sentimentLabel.text = "🤬"
+        }
+    }
+    
+    func highlightReflectionButton() {
+        switch reflectionMedia {
+        case "text":
+            textButton.backgroundColor = .white
+            audioButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+            videoButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+        case "audio":
+            textButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+            audioButton.backgroundColor = .white
+            videoButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+        case "video":
+            textButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+            audioButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+            videoButton.backgroundColor = .white
+        default:
+            textButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+            audioButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
+            videoButton.backgroundColor = UIColor.init(red: CGFloat(117.0/255.0), green: CGFloat(195.0/255.0), blue: CGFloat(234.0/255.0), alpha: 1.0)
         }
     }
     

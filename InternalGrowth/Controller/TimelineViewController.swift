@@ -71,6 +71,13 @@ class TimelineViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    // MARK: - UI Functions
+    
+    // unwinding when deleting
+    @IBAction func unwind(_ seg: UIStoryboardSegue) {
+        
+    }
+    
     // MARK: - CoreData Functions
     func saveItems() {
         

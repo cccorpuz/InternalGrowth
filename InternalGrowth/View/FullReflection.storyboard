@@ -55,7 +55,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDA-Qy-wkS" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="374" height="30"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.46930493818836649" green="0.78370220888878794" blue="0.94202628968253965" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Click me for prompt inspiration!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -68,25 +68,28 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-nW-nBK">
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="lRc-nW-nBK">
                                         <rect key="frame" x="0.0" y="190" width="374" height="22"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXs-0e-jW5" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="22"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="22"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="pencil" catalog="system"/>
                                                 <connections>
                                                     <action selector="onTextButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="39X-Xn-2Cn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-ZN-xRI" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
-                                                <rect key="frame" x="124.5" y="0.0" width="125" height="22"/>
+                                                <rect key="frame" x="129.5" y="0.0" width="115" height="22"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="mic.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="onAudioButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="g3Q-jP-VXR"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWn-LN-6fY" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
-                                                <rect key="frame" x="249.5" y="0.0" width="124.5" height="22"/>
+                                                <rect key="frame" x="259.5" y="0.0" width="114.5" height="22"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="onVideoButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="WcC-zO-LR2"/>
@@ -162,7 +165,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dcX-h8-PVc" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
-                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.45745879563618863" green="0.7639200857328049" blue="0.9182477678571429" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Choose Experience">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -178,7 +181,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOl-Vt-b0i" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="177" height="30"/>
                                                 <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Cancel..."/>
+                                                <state key="normal" title="Cancel...">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onCancelButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="q8m-vF-dk5"/>
                                                 </connections>
@@ -186,7 +191,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fl4-fO-fmT" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
                                                 <rect key="frame" x="197" y="0.0" width="177" height="30"/>
                                                 <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Grow!"/>
+                                                <state key="normal" title="Grow!">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onGrowButtonPressed:" destination="RTE-Qk-U6D" eventType="touchUpInside" id="GfZ-ii-Vjp"/>
                                                 </connections>

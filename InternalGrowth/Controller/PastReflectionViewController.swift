@@ -46,6 +46,11 @@ class PastReflectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(
+               self,
+               selector: #selector(FullReflectionViewController.playerDidReachEndNotificationHandler(_:)),
+               name: NSNotification.Name(rawValue: "AVPlayerItemDidPlayToEndTimeNotification"),
+               object: player?.currentItem)
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -16,27 +16,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="29w-n8-loe">
-                                <rect key="frame" x="0.0" y="59" width="414" height="788"/>
+                                <rect key="frame" x="20" y="59" width="374" height="788"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouM-Vy-puv">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-eb-PJ6">
-                                        <rect key="frame" x="0.0" y="30.5" width="414" height="22"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-eb-PJ6">
+                                        <rect key="frame" x="0.0" y="30.5" width="374" height="22"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoG-SM-M53">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MoG-SM-M53" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="114.5" height="22"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="pencil" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onTextButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="LY8-Zn-ZBK"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SM4-Ao-QuT">
-                                                <rect key="frame" x="138" y="0.0" width="138" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SM4-Ao-QuT" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="129.5" y="0.0" width="115" height="22"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="mic.fill" catalog="system"/>
+                                                <connections>
+                                                    <action selector="onAudioButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="yZJ-SL-Lb2"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z26-i7-9dc">
-                                                <rect key="frame" x="276" y="0.0" width="138" height="22"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z26-i7-9dc" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="259.5" y="0.0" width="114.5" height="22"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="video.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="onVideoButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="8AS-oS-w21"/>
@@ -44,83 +53,129 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fnj-96-HIp">
-                                        <rect key="frame" x="0.0" y="62.5" width="414" height="725.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Fnj-96-HIp" userLabel="Reflection Stack View">
+                                        <rect key="frame" x="0.0" y="62.5" width="374" height="601.5"/>
                                         <subviews>
+                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="s5N-Zp-PWm">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="5"/>
+                                                <subviews>
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qZx-EY-4kD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                    </containerView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6sc-pg-Utj">
+                                                        <rect key="frame" x="0.0" y="5" width="374" height="0.0"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfB-g0-laf">
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wOA-GM-k0q" customClass="CustomSlider" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="18" y="0.0" width="278" height="1"/>
+                                                            </slider>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ah2-wm-mPl" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                                <rect key="frame" x="314" y="0.0" width="60" height="0.0"/>
+                                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="60" id="ewX-hn-twI"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Play">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="onPlayButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="Ru5-Bj-7lG"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalHuggingPriority="249" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="teF-6s-zjI">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="571"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="601.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kHx-ZP-28R">
+                                        <rect key="frame" x="0.0" y="674" width="374" height="34"/>
+                                        <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reflection Keyword" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RrF-bc-073">
-                                                <rect key="frame" x="0.0" y="581" width="414" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reflecting on:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oEq-GF-BAp">
-                                                <rect key="frame" x="0.0" y="625" width="414" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8v-OI-qMT">
-                                                <rect key="frame" x="0.0" y="655.5" width="414" height="30"/>
-                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Choose Experience"/>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wGk-vV-cY5">
+                                        <rect key="frame" x="0.0" y="718" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8v-OI-qMT" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
+                                                <color key="backgroundColor" red="0.45745879560000002" green="0.76392008570000003" blue="0.91824776789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Choose Experience">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="onChooseExperienceButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="jcN-Qe-EVJ"/>
                                                 </connections>
                                             </button>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jRp-WG-83Z">
-                                                <rect key="frame" x="0.0" y="695.5" width="414" height="30"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHT-Zq-np2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="197" height="30"/>
-                                                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Cancel..."/>
-                                                        <connections>
-                                                            <action selector="onCancelButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="lZD-yC-L1H"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGn-S0-ia7">
-                                                        <rect key="frame" x="217" y="0.0" width="197" height="30"/>
-                                                        <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <state key="normal" title="Grow!"/>
-                                                        <connections>
-                                                            <action selector="onGrowButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="dx7-pa-QdD"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="teF-6s-zjI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Fnj-96-HIp" secondAttribute="top" id="XCr-pW-fiC"/>
-                                            <constraint firstItem="RrF-bc-073" firstAttribute="top" secondItem="teF-6s-zjI" secondAttribute="bottom" constant="10" id="bvn-iz-8Fn"/>
-                                            <constraint firstAttribute="trailing" secondItem="teF-6s-zjI" secondAttribute="trailing" id="eO1-oJ-9bm"/>
-                                            <constraint firstItem="teF-6s-zjI" firstAttribute="leading" secondItem="Fnj-96-HIp" secondAttribute="leading" id="vXD-DE-duT"/>
-                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jRp-WG-83Z">
+                                        <rect key="frame" x="0.0" y="758" width="374" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHT-Zq-np2" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="177" height="30"/>
+                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Cancel...">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onCancelButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="lZD-yC-L1H"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGn-S0-ia7" customClass="CustomButton" customModule="Internal_Growth" customModuleProvider="target">
+                                                <rect key="frame" x="197" y="0.0" width="177" height="30"/>
+                                                <color key="backgroundColor" red="0.37731835860000001" green="0.81712709859999999" blue="0.58806068730000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Grow!">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onGrowButtonPressed:" destination="gFN-xy-X7r" eventType="touchUpInside" id="dx7-pa-QdD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.69870442250394182" green="0.72277431316140306" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.50511821609999996" green="0.83217737079999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="29w-n8-loe" firstAttribute="leading" secondItem="1u6-fs-HxG" secondAttribute="leading" id="Q2x-cD-1PF"/>
+                            <constraint firstItem="29w-n8-loe" firstAttribute="leading" secondItem="1u6-fs-HxG" secondAttribute="leading" constant="20" id="Q2x-cD-1PF"/>
                             <constraint firstItem="29w-n8-loe" firstAttribute="top" secondItem="1u6-fs-HxG" secondAttribute="top" constant="15" id="cQi-kW-b3J"/>
                             <constraint firstItem="29w-n8-loe" firstAttribute="bottom" secondItem="1u6-fs-HxG" secondAttribute="bottom" constant="-15" id="hVj-V2-OZv"/>
-                            <constraint firstItem="1u6-fs-HxG" firstAttribute="trailing" secondItem="29w-n8-loe" secondAttribute="trailing" id="nk8-HD-CVx"/>
+                            <constraint firstItem="1u6-fs-HxG" firstAttribute="trailing" secondItem="29w-n8-loe" secondAttribute="trailing" constant="20" id="nk8-HD-CVx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1u6-fs-HxG"/>
                     </view>
                     <connections>
+                        <outlet property="audioButton" destination="SM4-Ao-QuT" id="X2b-Y5-XHh"/>
                         <outlet property="cancelButton" destination="dHT-Zq-np2" id="XMU-pw-EPY"/>
                         <outlet property="chooseExperienceButton" destination="w8v-OI-qMT" id="lrw-Ux-n57"/>
                         <outlet property="growButton" destination="yGn-S0-ia7" id="MYl-v9-HYV"/>
                         <outlet property="keywordTextField" destination="RrF-bc-073" id="AAs-op-QXP"/>
+                        <outlet property="playVideoButton" destination="Ah2-wm-mPl" id="L6t-ld-0HI"/>
                         <outlet property="promptLabel" destination="ouM-Vy-puv" id="Oqf-FG-Gtu"/>
+                        <outlet property="reflectionMediaContainerView" destination="qZx-EY-4kD" id="CVg-vI-1em"/>
+                        <outlet property="reflectionMediaVStackView" destination="s5N-Zp-PWm" id="h83-rJ-gBI"/>
                         <outlet property="reflectionTextView" destination="teF-6s-zjI" id="bX6-9s-1X1"/>
+                        <outlet property="textButton" destination="MoG-SM-M53" id="Uus-bp-whC"/>
+                        <outlet property="videoButton" destination="z26-i7-9dc" id="o81-l3-8RN"/>
+                        <outlet property="videoProgressBar" destination="wOA-GM-k0q" id="7Kb-I4-EE5"/>
+                        <outlet property="videoTimeLabel" destination="tfB-g0-laf" id="GNW-uC-jGF"/>
                         <segue destination="4gH-Ha-1wA" kind="modal" identifier="chooseExperienceSegueFromQuickReflection" id="SNo-9P-WL0"/>
                     </connections>
                 </viewController>
