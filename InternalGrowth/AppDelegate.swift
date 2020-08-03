@@ -11,7 +11,10 @@ import CoreData
 import Firebase
 import FirebaseCore
 import FirebaseAuth
+import FirebaseFirestore
 import IQKeyboardManagerSwift
+
+let db  = Firestore.firestore()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

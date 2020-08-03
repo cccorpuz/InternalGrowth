@@ -25,7 +25,7 @@
         <!--HomeScreen-->
         <scene sceneID="OXN-QS-crx">
             <objects>
-                <viewController storyboardIdentifier="HomeScreen" title="HomeScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h5e-PB-l04" customClass="MainViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeScreen" title="HomeScreen" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h5e-PB-l04" customClass="MainViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8B-uB-qXm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,7 +42,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Lzv-90-ZXF"/>
                                                 </constraints>
-                                                <state key="normal" title="How are you feeling today?">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.37739074099999997" green="0.73103325119999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -58,7 +58,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Sux-rh-DL8"/>
                                                 </constraints>
-                                                <state key="normal" title="Tell me about the last hour!">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.37739074099999997" green="0.73103325119999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -74,7 +74,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="2fU-Qc-iYC"/>
                                                 </constraints>
-                                                <state key="normal" title="Who inspires you?">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.37739074099999997" green="0.73103325119999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -122,7 +122,7 @@
         <!--LoginViewController-->
         <scene sceneID="Ryg-VA-geY">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pqi-A0-8ZM" customClass="LoginViewController" customModule="InternalGrowth" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="LoginViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pqi-A0-8ZM" customClass="LoginViewController" customModule="Internal_Growth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmF-RC-Bqs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

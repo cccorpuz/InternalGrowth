@@ -8,7 +8,7 @@ target 'InternalGrowth' do
   # Pods for InternalGrowth
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
-  Pod 'Firebase/Firestore'
+  pod 'Firebase/Firestore'
   pod 'IQKeyboardManagerSwift'
 
 end

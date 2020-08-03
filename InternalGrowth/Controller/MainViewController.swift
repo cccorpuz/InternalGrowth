@@ -76,10 +76,6 @@ class MainViewController: UIViewController, FloatyDelegate {
         QuickPrompt1Button.layer.cornerRadius = 30;
         QuickPrompt2Button.layer.cornerRadius = 30;
         QuickPrompt3Button.layer.cornerRadius = 30;
-        
-        QuickPrompt1Button.setTitle(prompts.prompts[0], for: .normal)
-        QuickPrompt2Button.setTitle(prompts.prompts[1], for: .normal)
-        QuickPrompt3Button.setTitle(prompts.prompts[2], for: .normal)
 
         // To give buttons rounded corners:
         QuickPrompt1Button?.layer.cornerRadius = 30;
@@ -87,9 +83,8 @@ class MainViewController: UIViewController, FloatyDelegate {
         QuickPrompt3Button?.layer.cornerRadius = 30;
         
         // Setting prompts
-        QuickPrompt1Button?.setTitle(prompts.prompts[0], for: .normal)
-        QuickPrompt2Button?.setTitle(prompts.prompts[1], for: .normal)
-        QuickPrompt3Button?.setTitle(prompts.prompts[2], for: .normal)
+        updatePrompts()
+        
     }
     
     // MARK: - UI Programmatic styling functions
@@ -213,6 +208,32 @@ class MainViewController: UIViewController, FloatyDelegate {
 
         self.view.addSubview(floaty)
       
+    }
+    
+    //MARK: - Updating buttons with prompts
+    func updatePrompts() {
+        var promptList : [String] = []
+        
+        let docRef = db.collection("Prompts").document("doc1")
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                for item in document.data()! {
+                    promptList.append(item.value as! String)
+                }
+                for i in 0 ... 2 {
+                    let index = Int.random(in: 0 ..< promptList.count)
+                    self.prompts.prompts[i] = promptList[index]
+                    promptList.remove(at: index)
+                }
+                
+                self.QuickPrompt1Button?.setTitle(self.prompts.prompts[0], for: .normal)
+                self.QuickPrompt2Button?.setTitle(self.prompts.prompts[1], for: .normal)
+                self.QuickPrompt3Button?.setTitle(self.prompts.prompts[2], for: .normal)
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     //MARK: - Timers for button clouds
