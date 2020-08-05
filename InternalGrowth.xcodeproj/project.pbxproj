@@ -14,6 +14,7 @@
 		4F5BEDA624D06FBF003E4127 /* EditVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BEDA524D06FBF003E4127 /* EditVideoViewController.swift */; };
 		4F5BEDA824D0BCD6003E4127 /* VideoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5BEDA724D0BCD6003E4127 /* VideoHelper.swift */; };
 		6C0E7F0824C9F83400EE99C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6C0E7F0724C9F83400EE99C9 /* GoogleService-Info.plist */; };
+		6C2961C524D7E2E2006B0A26 /* TreeImages.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 6C2961C424D7E2E2006B0A26 /* TreeImages.atlas */; };
 		6C4BE87324C01A9A00E31AF0 /* Timeline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C4BE87124C01A9A00E31AF0 /* Timeline.storyboard */; };
 		6C8F668624CFB7DB00B129BD /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8F668524CFB7DB00B129BD /* Users.swift */; };
 		6CA78C9C24C1328C00EC3A9A /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 6CA78C9B24C1328C00EC3A9A /* Floaty */; };
@@ -54,6 +55,7 @@
 		4F5BEDA524D06FBF003E4127 /* EditVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVideoViewController.swift; sourceTree = SOURCE_ROOT; };
 		4F5BEDA724D0BCD6003E4127 /* VideoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoHelper.swift; sourceTree = "<group>"; };
 		6C0E7F0724C9F83400EE99C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6C2961C424D7E2E2006B0A26 /* TreeImages.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = TreeImages.atlas; sourceTree = "<group>"; };
 		6C4BE87224C01A9A00E31AF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Timeline.storyboard; sourceTree = "<group>"; };
 		6C8F668524CFB7DB00B129BD /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		6CB00C1424CA2CCD00B3BAD6 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				6CB00C1C24CA79D200B3BAD6 /* Data Models */,
 				6CC4159224BF7C26007B4546 /* Controller */,
 				6CC4159024BF7BEE007B4546 /* View */,
+				6C2961C424D7E2E2006B0A26 /* TreeImages.atlas */,
 				6CEA923C24BE419900C9AA92 /* Assets.xcassets */,
 				6CEA924124BE419900C9AA92 /* Info.plist */,
 				6C0E7F0724C9F83400EE99C9 /* GoogleService-Info.plist */,
@@ -282,6 +285,7 @@
 				6CEA924024BE419900C9AA92 /* LaunchScreen.storyboard in Resources */,
 				6C4BE87324C01A9A00E31AF0 /* Timeline.storyboard in Resources */,
 				6CEA923D24BE419900C9AA92 /* Assets.xcassets in Resources */,
+				6C2961C524D7E2E2006B0A26 /* TreeImages.atlas in Resources */,
 				4F5BED9C24CFFBD0003E4127 /* Video.storyboard in Resources */,
 				6CFAFBCD24C4D99E00E23232 /* PastReflection.storyboard in Resources */,
 				6CEE249724C25D62000C75D1 /* QuickReflection.storyboard in Resources */,

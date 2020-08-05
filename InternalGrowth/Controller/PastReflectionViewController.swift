@@ -123,7 +123,7 @@ class PastReflectionViewController: UIViewController {
         
         itemArray[selectedReflection].prompt = reflectionPromptLabel.text
         itemArray[selectedReflection].keyword = keywordLabel.text
-        itemArray[selectedReflection].textReflection =         reflectionTextView.text
+        itemArray[selectedReflection].textReflection = reflectionTextView.text
         saveItems()
     }
     

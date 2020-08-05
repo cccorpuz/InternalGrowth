@@ -18,10 +18,6 @@ class Prompts
     
     init()
     {
-        prompts =	[ //Begin prompt array
-					"How are you feeling today?",
-					"Tell me about the last hour!",
-					"Who inspires you?"
-					] //End prompt array
+        prompts =	["","",""]
     }
 }

@@ -23,6 +23,25 @@ class MainViewController: UIViewController, FloatyDelegate {
     var timer1 = Timer()                // Timer to move buttons across screen
     var timer2 = Timer()                // Timer to move buttons across screen
     var timer3 = Timer()                // Timer to move buttons across screen
+    var cloudButtonArray : [UIButton]!
+    
+    @IBOutlet var homeScreenView: UIView!
+    // Animate growing tree
+    @IBOutlet weak var grassImageView: UIImageView!
+    @IBOutlet weak var treeImageViewPlaceholder: UIImageView!
+    var animatedTree : UIImage!
+    var tree_0 : UIImage!
+    var tree_1 : UIImage!
+    var tree_2 : UIImage!
+    var tree_3 : UIImage!
+    var tree_4 : UIImage!
+    var tree_5 : UIImage!
+    var tree_6 : UIImage!
+    var tree_7 : UIImage!
+    var tree_8 : UIImage!
+    var tree_9 : UIImage!
+
+
     
     // MARK: - IBActions
     @IBOutlet weak var QuickPrompt1Button : UIButton!
@@ -60,11 +79,19 @@ class MainViewController: UIViewController, FloatyDelegate {
         print(viewWidth)
         
         
-        timer1 = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(timerAction1), userInfo: self, repeats: true)
+        timer1 = Timer.scheduledTimer(timeInterval: 0.015, target: self, selector: #selector(timerAction1), userInfo: self, repeats: true)
         
         timer2 = Timer.scheduledTimer(timeInterval: 0.025, target: self, selector: #selector(timerAction2), userInfo: self, repeats: true)
         
-        timer3 = Timer.scheduledTimer(timeInterval: 0.018, target: self, selector: #selector(timerAction3), userInfo: self, repeats: true)
+        timer3 = Timer.scheduledTimer(timeInterval: 0.020, target: self, selector: #selector(timerAction3), userInfo: self, repeats: true)
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "grass-0")
+        backgroundImage.contentMode =  UIView.ContentMode.bottom
+        backgroundImage.heightAnchor.constraint(equalToConstant: 130.0).isActive = true
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+        cloudButtonArray = [QuickPrompt1Button,QuickPrompt2Button,QuickPrompt3Button]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,14 +100,43 @@ class MainViewController: UIViewController, FloatyDelegate {
         createGradientLayer()
         
         // To give buttons rounded corners:
-        QuickPrompt1Button.layer.cornerRadius = 30;
-        QuickPrompt2Button.layer.cornerRadius = 30;
-        QuickPrompt3Button.layer.cornerRadius = 30;
+        QuickPrompt1Button?.layer.cornerRadius = QuickPrompt1Button.frame.height / 2;
+        QuickPrompt2Button?.layer.cornerRadius = QuickPrompt2Button.frame.height / 2;
+        QuickPrompt3Button?.layer.cornerRadius = QuickPrompt3Button.frame.height / 2;
         
-        // Setting prompts
-        QuickPrompt1Button?.setTitle(prompts.prompts[0], for: .normal)
-        QuickPrompt2Button?.setTitle(prompts.prompts[1], for: .normal)
-        QuickPrompt3Button?.setTitle(prompts.prompts[2], for: .normal)
+        // infinite lines for each button to fit text
+        QuickPrompt1Button?.titleLabel?.numberOfLines = 0
+        QuickPrompt2Button?.titleLabel?.numberOfLines = 0
+        QuickPrompt3Button?.titleLabel?.numberOfLines = 0
+        
+        // center text
+        QuickPrompt1Button?.titleLabel?.textAlignment = .center
+        QuickPrompt2Button?.titleLabel?.textAlignment = .center
+        QuickPrompt3Button?.titleLabel?.textAlignment = .center
+        
+
+        // tree images
+        tree_0 = UIImage(named: "tree-0")
+        tree_1 = UIImage(named: "tree-1")
+        tree_2 = UIImage(named: "tree-2")
+        tree_3 = UIImage(named: "tree-3")
+        tree_4 = UIImage(named: "tree-4")
+        tree_5 = UIImage(named: "tree-5")
+        tree_6 = UIImage(named: "tree-6")
+        tree_7 = UIImage(named: "tree-7")
+        tree_8 = UIImage(named: "tree-8")
+        tree_9 = UIImage(named: "tree-9")
+        let images : [UIImage] = [tree_0,tree_1,tree_2,tree_3,tree_4,tree_5,tree_6,tree_7,tree_8,tree_9]
+        animatedTree = UIImage.animatedImage(with: images, duration: 27.0)
+        treeImageViewPlaceholder.image = animatedTree // animate the tree
+        
+        // update prompts
+        var tempIndex = 0
+        for button in cloudButtonArray {
+            updatePrompts(button: button, buttonIndex: tempIndex)
+            tempIndex += 1
+        }
+        tempIndex = 0
     }
     
     // MARK: - UI Programmatic styling functions
@@ -89,6 +145,28 @@ class MainViewController: UIViewController, FloatyDelegate {
         gradientLayer.frame = self.view.bounds
         gradientLayer.colors = [UIColor.blue.cgColor, UIColor.cyan.cgColor]
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    func updatePrompts(button : UIButton, buttonIndex : Int) {
+        var promptList : [String] = []
+
+        let docRef = db.collection("Prompts").document("doc1")
+
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                for item in document.data()! {
+                    promptList.append(item.value as! String)
+                }
+                var index = Int.random(in: 0 ..< promptList.count)
+                while ( self.prompts.prompts.contains( promptList[index] ) ) {
+                    index = Int.random(in: 0 ..< promptList.count)
+                }
+                self.prompts.prompts[buttonIndex] = promptList[index]
+                button.setTitle(self.prompts.prompts[buttonIndex], for: .normal)
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     // MARK: - Floating button functions
@@ -210,6 +288,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     @objc func timerAction1() {
         if QuickPrompt1Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt1Button.center.x = CGFloat.init() - buttonWidth / 2
+            updatePrompts(button: QuickPrompt1Button, buttonIndex: 0)
         }
         QuickPrompt1Button.center.x += 1
     }
@@ -217,6 +296,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     @objc func timerAction2() {
         if QuickPrompt2Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt2Button.center.x = CGFloat.init() - buttonWidth / 2
+            updatePrompts(button: QuickPrompt2Button, buttonIndex: 1)
         }
         QuickPrompt2Button.center.x += 1
     }
@@ -224,6 +304,7 @@ class MainViewController: UIViewController, FloatyDelegate {
     @objc func timerAction3() {
         if QuickPrompt3Button.center.x >= viewWidth + buttonWidth / 2 {
             QuickPrompt3Button.center.x = CGFloat.init() - buttonWidth / 2
+            updatePrompts(button: QuickPrompt3Button, buttonIndex: 2)
         }
         QuickPrompt3Button.center.x += 1
     }
